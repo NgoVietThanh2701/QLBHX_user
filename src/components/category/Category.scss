@@ -1,0 +1,97 @@
+.category {
+   background-color: white;
+   width: 80%;
+   margin: auto;
+   margin-top: 3vh;
+
+   .title {
+      color: grey;
+      padding: 12px;
+      font-weight: 400;
+      margin-left: 10px;
+   }
+
+   .items {
+      display: flex;
+      border: 1px solid rgba(199, 199, 199, 0.544);
+
+      hr {
+         display: block;
+         height: 1px;
+         border: 0;
+         border-top: 1px solid rgba(199, 199, 199, 0.544);
+         margin: 0.3em 0;
+         padding: 0;
+      }
+
+      .item {
+         width: 100%;
+         height: 125px;
+         margin-top: 5px;
+         display: flex;
+         flex-direction: column;
+         align-items: center;
+         gap: 5px;
+
+         img {
+            width: 48%;
+            height: 63%;
+            object-fit: cover;
+         }
+
+         span {
+            font-size: 13px;
+            text-align: center;
+            overflow: hidden;
+         }
+      }
+
+      .icon-circle {
+         background: #f3f5f9;
+         text-align: center;
+         border-radius: 50%;
+      }
+
+   }
+}
+
+//--------------------- button control
+.control-btn .next,
+.control-btn .prev {
+   position: absolute;
+   top: 40%;
+   width: 40px;
+   height: 40px;
+   background-color: white;
+   border-radius: 50%;
+   transform: 0.5s;
+   z-index: 10;
+
+   i {
+      font-size: 14px;
+      transition: 0.5s;
+      color: grey;
+   }
+
+   &:hover {
+      background: #0f3360cf;
+
+      i {
+         color: white;
+      }
+
+      cursor: pointer;
+   }
+
+   .slick-disabled {
+      display: none;
+   }
+}
+
+.control-btn .prev {
+   left: -20px;
+}
+
+.control-btn .next {
+   right: -20px;
+}
