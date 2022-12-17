@@ -96,6 +96,7 @@
          font-weight: 500
       }
    }
+
 }
 
 .search {
@@ -137,6 +138,16 @@ header {
    @include header();
 }
 
+// fixed top
+.topBar.active {
+   position: fixed;
+   top: 0;
+   z-index: 1000;
+   width: 100%;
+   box-shadow: -1px 1px 1px -1px rgba(255, 245, 245, 0);
+   transition: 0.5s;
+}
+
 @media (max-width: 672px) {
 
    // navbar
@@ -159,9 +170,10 @@ header {
 
    .header .nav-link .toggle {
       position: absolute;
-      top: 140px;
+      top: 125px;
       right: 20px;
-      color: grey;
+      color: white;
+      background-color: #FE6232;
       display: block;
       font-size: 18px;
       z-index: 999;
