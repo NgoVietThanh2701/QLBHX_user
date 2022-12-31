@@ -5,7 +5,7 @@ const Search = () => {
    return (
       <>
          <section className='search'>
-            <div className="search-flex container flex_2">
+            <div className="container flex_2">
                <div className="logo">
                   <i class="fa-solid fa-bag-shopping"></i>
                   <span>DeftShop</span>

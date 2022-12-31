@@ -5,19 +5,17 @@ const Head = () => {
       <>
          <section className='head'>
             <div className="container flex_2">
-               <div>
-                  <i className='fa fa-phone'></i>
-                  <label> +88012 3456 7894</label>
-                  <i className='fa fa-envelope'></i>
-                  <label> deftshop@gmail.com</label>
+               <div className='head-item'>
+                  <label>Kênh người bán</label>
+                  <hr width="1" size="15" />
+                  <label>Trở thành người bán DeftShop</label>
                </div>
-               <div>
-                  <label>Theme FAQ"s</label>
-                  <label>Need Help?</label>
-                  <span>🏳️‍⚧️</span>
-                  <label>EN</label>
-                  <span>🏳️‍⚧️</span>
-                  <label>USD</label>
+               <div className='head-item'>
+                  <i class="fa-solid fa-question"></i>
+                  <label>Hổ trợ</label>
+                  <label>Đăng ký</label>
+                  <hr width="1" size="15" />
+                  <label>Đăng nhập</label>
                </div>
             </div>
          </section>

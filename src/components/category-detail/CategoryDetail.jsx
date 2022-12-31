@@ -1,10 +1,8 @@
 import React from 'react'
-import Slider from "react-slick";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
-import { Link } from "react-router-dom"
+import Products from '../products/Products'
+import './CategoryDetail.scss'
 
-const CategoryCard = () => {
+const CategoryDetail = () => {
 
    const Sdata = [
       {
@@ -59,13 +57,13 @@ const CategoryCard = () => {
          id: 9,
          title: "50% Off For Your First Shopping",
          desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quis lobortis consequat eu, quam etiam at quis ut convallis.",
-         cover: './images/category/category_3.png',
+         cover: './images/category/category_6.png',
       },
       {
          id: 10,
          title: "50% Off For Your First Shopping",
          desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quis lobortis consequat eu, quam etiam at quis ut convallis.",
-         cover: './images/category/category_4.png',
+         cover: './images/category/category_1.png',
       },
       {
          id: 11,
@@ -77,118 +75,123 @@ const CategoryCard = () => {
          id: 12,
          title: "50% Off For Your First Shopping",
          desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quis lobortis consequat eu, quam etiam at quis ut convallis.",
+         cover: './images/category/category_2.png',
+      },
+      {
+         id: 1,
+         title: "50% Off For Your First Shopping",
+         desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quis lobortis consequat eu, quam etiam at quis ut convallis.",
          cover: './images/category/category_1.png',
       },
       {
-         id: 13,
+         id: 2,
+         title: "50% Off For Your First Shopping",
+         desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quis lobortis consequat eu, quam etiam at quis ut convallis.",
+         cover: './images/category/category_2.png',
+      },
+      {
+         id: 3,
+         title: "50% Off For Your First Shopping",
+         desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quis lobortis consequat eu, quam etiam at quis ut convallis.",
+         cover: './images/category/category_3.png',
+      },
+      {
+         id: 4,
+         title: "50% Off For Your First Shopping",
+         desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quis lobortis consequat eu, quam etiam at quis ut convallis.",
+         cover: './images/category/category_4.png',
+      },
+      {
+         id: 5,
+         title: "50% Off For Your First Shopping",
+         desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quis lobortis consequat eu, quam etiam at quis ut convallis.",
+         cover: './images/category/category_5.png',
+      },
+      {
+         id: 6,
          title: "50% Off For Your First Shopping",
          desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quis lobortis consequat eu, quam etiam at quis ut convallis.",
          cover: './images/category/category_6.png',
       },
       {
-         id: 14,
+         id: 7,
          title: "50% Off For Your First Shopping",
          desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quis lobortis consequat eu, quam etiam at quis ut convallis.",
-         cover: './images/category/category_3.png',
+         cover: './images/category/category_1.png',
       },
       {
-         id: 15,
+         id: 8,
          title: "50% Off For Your First Shopping",
          desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quis lobortis consequat eu, quam etiam at quis ut convallis.",
          cover: './images/category/category_2.png',
       },
       {
-         id: 16,
-         title: "50% Off  First Shopping",
+         id: 9,
+         title: "50% Off For Your First Shopping",
          desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quis lobortis consequat eu, quam etiam at quis ut convallis.",
-         cover: './images/category/category_3.png',
+         cover: './images/category/category_6.png',
       },
       {
-         id: 17,
-         title: "50% First Shopping",
+         id: 10,
+         title: "50% Off For Your First Shopping",
          desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quis lobortis consequat eu, quam etiam at quis ut convallis.",
-         cover: './images/category/category_3.png',
+         cover: './images/category/category_1.png',
+      },
+      {
+         id: 11,
+         title: "50% Off For Your First Shopping",
+         desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quis lobortis consequat eu, quam etiam at quis ut convallis.",
+         cover: './images/category/category_2.png',
+      },
+      {
+         id: 11,
+         title: "50% Off For Your First Shopping",
+         desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quis lobortis consequat eu, quam etiam at quis ut convallis.",
+         cover: './images/category/category_2.png',
       },
       {
          id: 18,
-         title: "50% Off First Shopping",
-         desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quis lobortis consequat eu, quam etiam at quis ut convallis.",
-         cover: './images/category/category_3.png',
-      },
-      {
-         id: 19,
-         title: "Shopping",
+         title: "50% Off For Your First Shopping",
          desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quis lobortis consequat eu, quam etiam at quis ut convallis.",
          cover: './images/category/category_2.png',
       },
-      {
-         id: 20,
-         title: "First Shopping",
-         desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quis lobortis consequat eu, quam etiam at quis ut convallis.",
-         cover: './images/category/category_5.png',
-      },
    ]
 
-   const settings = {
-      dots: false,
-      infinite: false, // don't click when end list
-      slidesToShow: 7,
-      slidesToScroll: 3,
-      speed: 500,
-      nextArrow: <SampleNextArrow />,
-      prevArrow: <SamplePrevArrow />,
-   }
-
    return (
-      <>
-         <Slider {...settings}>
-            {Sdata.map((value, index) => {
-               if (index % 2 === 0) {
-                  return (
-                     <div key={index} className='items'>
-                        <Link to='/category-detail'>
-                           <div className="item">
-                              <img className='icon-circle' src={value.cover} alt="" />
-                              <span>{value.title + value.id}</span>
-                           </div>
-                        </Link>
-                        <hr />
-                        <div className="item">
-                           <img className='icon-circle' src={Sdata[index + 1].cover} alt="" />
-                           <span>{Sdata[index + 1].title + Sdata[index + 1].id}</span>
-                        </div>
-                     </div>
-                  )
-               }
-               return null;
-            })}
-         </Slider>
-      </>
+      <section className='category-detail'>
+         <div className="left">
+            <div className="title">
+               <i class="fa-solid fa-list"></i>
+               <span>Danh mục</span>
+            </div>
+            <div className="hr"></div>
+            <div className="top">
+               <div className="category-name">Thoi trang nam</div>
+               <div className="sub-category capitalize">
+                  <span>Ao khoac nam</span>
+                  <span>Quan nam</span>
+                  <span>quan the thao</span>
+                  <span>Ao </span>
+                  <span>Ao  nam</span>
+               </div>
+            </div>
+            <div className="bottom">
+               <div className="filter">BỘ LỌC TÌM KIẾM</div>
+            </div>
+         </div>
+
+
+         <div className="right">
+            <div className="top">
+               <div className="sort-title">Sap xep theo</div>
+               <div className="option active">Pho bien</div>
+               <div className="option">Moi nhat</div>
+               <div className="option">Ban chay</div>
+            </div>
+            <Products Sdata={Sdata} />
+         </div>
+      </section>
    )
 }
 
-export default CategoryCard;
-
-const SampleNextArrow = (props) => {
-   const { onClick } = props;
-   if (!onClick) return;
-   return (
-      <div className='control-btn' onClick={onClick}>
-         <button className='next'>
-            <i className='fa fa-long-arrow-alt-right'></i>
-         </button>
-      </div>
-   )
-}
-
-const SamplePrevArrow = (props) => {
-   const { onClick } = props;
-   if (!onClick) return;
-   return (
-      <div className='control-btn' onClick={onClick}>
-         <button className='prev'>
-            <i className='fa fa-long-arrow-alt-left'></i>
-         </button>
-      </div>
-   )
-}
+export default CategoryDetail

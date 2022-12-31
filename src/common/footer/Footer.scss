@@ -1,0 +1,47 @@
+.footer {
+   margin-top: 50px;
+   height: 50vh;
+   background-color: white;
+
+   .hr {
+      border: 1px solid #F6412D;
+      background-color: #F6412D;
+   }
+
+   .items {
+      margin: auto;
+      max-width: 80%;
+      margin-top: 20px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+
+      .item {
+         width: 1/5;
+         flex-grow: 1; // fill content
+         display: flex;
+         flex-direction: column;
+         gap: 10px;
+
+         .title {
+            font-weight: 500;
+            font-size: 13px;
+         }
+
+         .content {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+            font-size: 13px;
+            color: grey;
+         }
+      }
+   }
+
+   .hr-sub {
+      max-width: 80%;
+      margin: auto;
+      margin-top: 20px;
+      border-bottom: 0.5px solid rgba(128, 128, 128, 0.295);
+   }
+}

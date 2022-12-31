@@ -1,0 +1,105 @@
+.products {
+   margin-top: 15px;
+   display: flex;
+   flex-wrap: wrap;
+   justify-content: center;
+   gap: 10px;
+
+   .items {
+      //width: 1/8;
+      flex-grow: 1;
+      position: relative;
+      background-color: white;
+      box-shadow: 1px 1px 1px 1px rgba(100, 97, 97, 0.282);
+
+      &:hover {
+         border: 1px solid red;
+
+      }
+
+      .discount {
+         position: absolute;
+         z-index: 10;
+         top: 0px;
+         right: 0px;
+         background-color: #fccd12;
+         font-size: 13px;
+         display: flex;
+         flex-direction: column;
+         align-items: center;
+         padding: 0px 1px 0 1px;
+
+         .dis {
+            color: #EE2C14;
+         }
+
+         .text {
+            color: white;
+         }
+
+         .triangle {
+            width: 0;
+            height: 0;
+            border-left: 15px solid transparent;
+            border-right: 15px solid transparent;
+            border-bottom: 10px solid white;
+         }
+      }
+
+      .item {
+         width: 100%;
+         display: flex;
+         flex-direction: column;
+         align-items: center;
+         gap: 8px;
+
+         img {
+            height: 155px;
+            width: 145px;
+            object-fit: cover;
+            padding: 3px 0px 0px;
+         }
+
+         .name {
+            width: 190px;
+            padding: 0 8px 0;
+            font-size: 13px;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+         }
+
+         .sale {
+            background-color: #eba10e;
+            padding: 3px;
+            border: 2px dotted white;
+            font-size: 9px;
+            color: white;
+            margin-right: auto;
+            margin-left: 5px;
+         }
+
+         .sub {
+            display: flex;
+            justify-content: space-between;
+            gap: 50px;
+            margin: 0 3px 0;
+            align-items: center;
+
+            .price {
+               font-size: 15px;
+               color: #EE2C14;
+            }
+
+            .quantity-sale {
+               font-size: 11px;
+               color: grey;
+            }
+         }
+      }
+
+   }
+
+
+}
