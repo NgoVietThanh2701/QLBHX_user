@@ -56,13 +56,13 @@ const Suggest = () => {
          id: 8,
          title: "50% Off For Your First Shopping",
          desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quis lobortis consequat eu, quam etiam at quis ut convallis.",
-         cover: './images/category/category_2.png',
+         cover: './images/products/product_1.jpg',
       },
       {
          id: 9,
          title: "50% Off For Your First Shopping",
          desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quis lobortis consequat eu, quam etiam at quis ut convallis.",
-         cover: './images/category/category_6.png',
+         cover: './images/products/product_2.jpg',
       },
       {
          id: 10,

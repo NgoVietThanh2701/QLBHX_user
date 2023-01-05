@@ -1,0 +1,282 @@
+$dimension_13 : 0.85vw; //1px = 0.065; 2px = 0.13
+$dimension_15 : 0.98vw;
+$dimension_16 : 1.045vw;
+$dimension_18 : 1.175vw;
+$dimension_20 : 1.305vw;
+$dimension_22 : 1.435vw;
+$dimension_24 : 1.565vw;
+$dimension_30 : 1.955vw;
+$dimension_32 : 2.085vw;
+
+.product-detail {
+   max-width: 80%;
+   margin: $dimension_15 auto;
+
+   .link {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+
+      span {
+         color: #023683;
+         font-size: $dimension_13;
+
+         &:last-child {
+            font-size: $dimension_15;
+            color: rgba(0, 0, 0, 0.8);
+         }
+      }
+
+      i {
+         color: rgba(0, 0, 0, 0.8);
+         font-size: $dimension_13;
+      }
+   }
+
+   .product {
+      margin-top: 10px;
+
+      .top {
+         background-color: white;
+         min-height: 37vw;
+         max-height: 37vw;
+         display: flex;
+         padding: $dimension_15;
+         gap: $dimension_20*0.5;
+         box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.1);
+
+         .left {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+
+            .image-main {
+               flex: 5;
+               max-height: 82%;
+               padding: 0px 20px 0 0;
+
+               img {
+                  width: 100%;
+                  height: 100%;
+                  margin: auto;
+                  object-fit: cover;
+               }
+            }
+
+            .image-list {
+               flex: 1;
+               max-width: 24.5vw;
+
+               img {
+                  padding: 6px;
+                  cursor: pointer;
+                  width: 100%;
+                  max-height: 7vw;
+                  margin: auto;
+                  object-fit: cover;
+
+                  &:hover {
+                     border: 1px solid #EE2C14;
+                  }
+               }
+            }
+         }
+
+         .right {
+            flex: 2;
+            display: flex;
+            flex-direction: column;
+            gap: $dimension_24;
+
+            .name {
+               font-size: $dimension_24;
+               color: rgba(0, 0, 0, 0.8);
+               font-weight: 400;
+            }
+
+            .div-info {
+               display: flex;
+               gap: $dimension_20;
+               align-items: center;
+
+               .div-hr {
+                  height: $dimension_20;
+                  border-left: 1px solid rgba(128, 128, 128, 0.593);
+               }
+
+               .eva-star {
+                  display: flex;
+                  align-items: center;
+                  gap: 5px;
+
+                  span:first-child {
+                     text-decoration: 1px underline;
+                  }
+
+                  span {
+                     color: #EE2C14;
+                     font-size: $dimension_18;
+                     font-weight: 400;
+                  }
+
+               }
+
+               .evaluate {
+                  display: flex;
+                  align-items: center;
+                  gap: 5px;
+                  font-size: $dimension_16;
+                  color: grey;
+
+                  span:first-child {
+                     font-size: $dimension_18;
+                     text-decoration: 1px underline;
+                     color: rgba(0, 0, 0, 0.9);
+                  }
+               }
+
+               .div-sold {
+                  display: flex;
+                  align-items: center;
+                  gap: 5px;
+                  font-size: $dimension_16;
+                  color: grey;
+
+                  span:first-child {
+                     font-size: $dimension_18;
+                     color: rgba(0, 0, 0, 0.9);
+                  }
+
+                  div {
+                     border: 1px solid grey;
+                     font-size: $dimension_13;
+                     font-weight: 600;
+                     border-radius: 50%;
+                     padding: 0px 5px;
+                  }
+               }
+            }
+
+            .div-price {
+               display: flex;
+               gap: $dimension_18;
+               padding: $dimension_18 $dimension_13;
+               background-color: rgba(128, 128, 128, 0.066);
+               align-items: center;
+
+               del {
+                  font-size: $dimension_18;
+                  color: grey;
+               }
+
+               .price {
+                  font-size: $dimension_32;
+                  color: #EE2C14;
+               }
+
+               .discount {
+                  padding: 1px 3px;
+                  border-radius: 3px;
+                  font-size: $dimension_13;
+                  background-color: #fe6232eb;
+                  color: white;
+               }
+            }
+
+            .deal {
+               display: flex;
+               gap: $dimension_32;
+               font-size: $dimension_15;
+               align-items: center;
+               color: grey;
+
+               span:last-child {
+                  color: #EE2C14;
+                  background-color: #f5b29d65;
+                  border-radius: 3px;
+                  padding: 1px 3px;
+               }
+            }
+
+            .attribute {
+               display: flex;
+               gap: $dimension_32;
+               align-items: center;
+
+               div:first-child {
+                  min-width: $dimension_32*2.2;
+                  color: grey;
+                  font-size: $dimension_15;
+               }
+
+               div:last-child {
+                  display: flex;
+                  gap: 20px;
+
+                  span {
+                     color: rgba(0, 0, 0, 0.8);
+                     font-size: $dimension_15;
+                     border: 1px solid rgba(128, 128, 128, 0.451);
+                     padding: 5px $dimension_20*0.75;
+                     border-radius: 1.5px;
+                     cursor: pointer;
+
+                     &:hover {
+                        border: 1px solid #EE2C14;
+                     }
+                  }
+               }
+
+            }
+
+
+         }
+      }
+
+      //end top
+
+   }
+}
+
+
+//--------------------- button control
+.control-btn .next,
+.control-btn .prev {
+   position: absolute;
+   top: 30%;
+   width: $dimension_30;
+   height: $dimension_30;
+   background-color: white;
+   border-radius: 50%;
+   transform: 0.5s;
+   z-index: 10;
+
+   i {
+      font-size: $dimension_13;
+      transition: 0.5s;
+      color: grey;
+   }
+
+   &:hover {
+      background: #0f3360cf;
+
+      i {
+         color: white;
+      }
+
+      cursor: pointer;
+   }
+
+   .slick-disabled {
+      display: none;
+   }
+}
+
+.control-btn .prev {
+   left: 0px;
+}
+
+.control-btn .next {
+   right: 0px;
+}

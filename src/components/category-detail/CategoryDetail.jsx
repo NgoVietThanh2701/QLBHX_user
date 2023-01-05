@@ -1,5 +1,5 @@
-import React from 'react'
-import Products from '../products/Products'
+import React, { useState } from 'react'
+import PaginatedProducts from '../list-products/ListProducts'
 import './CategoryDetail.scss'
 
 const CategoryDetail = () => {
@@ -157,6 +157,20 @@ const CategoryDetail = () => {
       },
    ]
 
+   const [sortOption, setSortOption] = useState(1);
+
+   const renderSwitch = (param) => {
+      switch (param) {
+         case 1: return Sdata;
+         case 2: return Sdata.reverse();
+         default: return Sdata;
+      }
+   }
+
+   const option = (index) => {
+      setSortOption(index);
+   }
+
    return (
       <section className='category-detail'>
          <div className="left">
@@ -176,19 +190,18 @@ const CategoryDetail = () => {
                </div>
             </div>
             <div className="bottom">
-               <div className="filter">BỘ LỌC TÌM KIẾM</div>
+               <span className="filter">BỘ LỌC TÌM KIẾM</span>
             </div>
          </div>
 
-
          <div className="right">
             <div className="top">
-               <div className="sort-title">Sap xep theo</div>
-               <div className="option active">Pho bien</div>
-               <div className="option">Moi nhat</div>
-               <div className="option">Ban chay</div>
+               <div className="sort-title">Sắp xếp theo</div>
+               <div onClick={() => option(1)} className={sortOption === 1 ? "option active" : "option"}>Phổ biến</div>
+               <div onClick={() => option(2)} className={sortOption === 2 ? "option active" : "option"}>Mới nhất</div>
+               <div onClick={() => option(3)} className={sortOption === 3 ? "option active" : "option"}>Bán chạy</div>
             </div>
-            <Products Sdata={Sdata} />
+            <PaginatedProducts items={renderSwitch(sortOption)} itemsPerPage={15} />
          </div>
       </section>
    )

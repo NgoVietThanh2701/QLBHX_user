@@ -89,7 +89,7 @@ const FlashSaleCard = () => {
          <Slider {...settings}>
             {Sdata.map((value, index) => {
                return (
-                  <div className="items">
+                  <div className="items" key={index}>
                      <div className="item">
                         <img src={value.cover} alt="" />
                         <div className="price">đ 500.000 </div>

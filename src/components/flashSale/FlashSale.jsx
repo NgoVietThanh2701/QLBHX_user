@@ -15,9 +15,7 @@ const FlashSale = () => {
                   <i class="fa-solid fa-arrow-right"></i>
                </div>
             </div>
-            <div className="content">
-               <FlashSaleCard />
-            </div>
+            <FlashSaleCard />
          </section>
       </>
    )
