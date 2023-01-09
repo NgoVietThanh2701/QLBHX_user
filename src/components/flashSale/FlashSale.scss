@@ -1,31 +1,43 @@
+$dimension_10_negative : -0.655vw;
+$dimension_10 : 0.655vw;
+$dimension_13 : 0.85vw; //1px = 0.065; 2px = 0.13
+$dimension_15 : 0.98vw;
+$dimension_16 : 1.045vw;
+$dimension_18 : 1.175vw;
+$dimension_20 : 1.305vw;
+$dimension_22 : 1.435vw;
+$dimension_24 : 1.565vw;
+$dimension_30 : 1.955vw;
+$dimension_32 : 2.085vw;
+
 .flashSale {
    background-color: white;
    width: 80%;
    margin: auto;
    margin-top: 3vh;
+   box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.1);
 
    .title {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 12px;
+      padding: $dimension_13;
 
       .titleName {
          color: #FE6232;
          font-weight: 600;
-         margin-left: 10px;
-         font-size: 22px;
+         margin-left: $dimension_10;
+         font-size: $dimension_22;
       }
 
       .btn-view {
-         color: grey;
-         font-size: 16px;
-         color: #FE6232;
+         font-size: $dimension_15;
+         color: #EE2C14;
          cursor: pointer;
 
          i {
-            margin-left: 5px;
-            font-size: 12px;
+            margin-left: $dimension_10;
+            font-size: $dimension_13;
          }
       }
    }
@@ -40,7 +52,7 @@
          top: 0px;
          right: 0px;
          background-color: #fccd12;
-         font-size: 13px;
+         font-size: $dimension_13*0.9;
          display: flex;
          flex-direction: column;
          align-items: center;
@@ -57,9 +69,9 @@
          .triangle {
             width: 0;
             height: 0;
-            border-left: 15px solid transparent;
-            border-right: 15px solid transparent;
-            border-bottom: 10px solid white;
+            border-left: $dimension_13 solid transparent;
+            border-right: $dimension_13 solid transparent;
+            border-bottom: $dimension_10 solid white;
          }
       }
 
@@ -69,17 +81,25 @@
          flex-direction: column;
          align-items: center;
          justify-content: space-evenly;
-         gap: 5px;
+         gap: $dimension_10*0.5;
+         border: 1px solid rgba(128, 128, 128, 0.167);
 
-         img {
-            width: 90%;
-            padding: 0px 30px 0 5px;
-            height: 150px;
-            object-fit: cover;
+         .image {
+            width: 99%;
+            height: $dimension_20*9;
+            padding: $dimension_10;
+
+            img {
+               width: 100%;
+               height: 100%;
+               object-fit: contain;
+            }
          }
+
 
          .price {
             color: #EE2C14;
+            font-size: $dimension_16;
          }
 
          .quantity-sale {
@@ -88,10 +108,10 @@
             color: white;
             width: 70%;
             font-weight: 400;
-            border-radius: 20px;
-            font-size: 12px;
+            border-radius: $dimension_20;
+            font-size: $dimension_10*1.2;
             text-align: center;
-            margin-bottom: 5px;
+            margin-bottom: $dimension_10*0.5;
          }
 
       }
@@ -99,19 +119,19 @@
 }
 
 //--------------------- button control
-.control-btn .next,
-.control-btn .prev {
+.control-btn-flash .next,
+.control-btn-flash .prev {
    position: absolute;
    top: 40%;
-   width: 40px;
-   height: 40px;
+   width: $dimension_20*2;
+   height: $dimension_20*2;
    background-color: white;
    border-radius: 50%;
    transform: 0.5s;
    z-index: 10;
 
    i {
-      font-size: 14px;
+      font-size: $dimension_13*1.1;
       transition: 0.5s;
       color: grey;
    }
@@ -131,10 +151,10 @@
    }
 }
 
-.control-btn .prev {
-   left: -20px;
+.control-btn-flash .prev {
+   left: $dimension_10_negative*1.5;
 }
 
-.control-btn .next {
-   right: -20px;
+.control-btn-flash .next {
+   right: $dimension_10_negative*1.5;
 }

@@ -1,3 +1,15 @@
+$dimension_10_negative : -0.655vw;
+$dimension_10 : 0.655vw;
+$dimension_13 : 0.85vw; //1px = 0.065; 2px = 0.13
+$dimension_15 : 0.98vw;
+$dimension_16 : 1.045vw;
+$dimension_18 : 1.175vw;
+$dimension_20 : 1.305vw;
+$dimension_22 : 1.435vw;
+$dimension_24 : 1.565vw;
+$dimension_30 : 1.955vw;
+$dimension_32 : 2.085vw;
+
 .suggest {
    width: 80%;
    margin: auto;
@@ -13,12 +25,12 @@
 
       button {
          color: #EE2C14;
-         font-size: 16px;
+         font-size: $dimension_16;
          font-weight: 500;
       }
 
       .tabs {
-         padding: 15px;
+         padding: $dimension_15;
          text-align: center;
          width: 17%;
          background: white;
@@ -36,15 +48,15 @@
          left: 50%;
          transform: translateX(-50%);
          width: calc(100% + 2px);
-         height: 4px;
+         height: $dimension_10*0.4;
          background: #FE6232;
       }
 
-      box-shadow: rgb(43 52 69 / 10%) 0px 4px 4px;
+      box-shadow: 1px 1px 3px 1px rgba(0, 0, 0, 0.1);
    }
 
    .content-tabs {
-      margin-top: 15px;
+      margin-top: $dimension_16;
 
       .content {
          display: none;
@@ -54,7 +66,7 @@
          display: flex;
          flex-wrap: wrap;
          justify-content: center;
-         gap: 10px;
+         gap: $dimension_10;
 
          .items {
             width: 1/6;
@@ -62,9 +74,10 @@
             position: relative;
             background-color: white;
             box-shadow: 1px 1px 1px 1px rgba(100, 97, 97, 0.253);
+            border: 1px solid transparent;
 
             &:hover {
-               border: 1px solid red;
+               border: 1.5px solid red;
 
             }
 
@@ -74,7 +87,7 @@
                top: 0px;
                right: 0px;
                background-color: #fccd12;
-               font-size: 13px;
+               font-size: $dimension_13;
                display: flex;
                flex-direction: column;
                align-items: center;
@@ -91,9 +104,9 @@
                .triangle {
                   width: 0;
                   height: 0;
-                  border-left: 15px solid transparent;
-                  border-right: 15px solid transparent;
-                  border-bottom: 10px solid white;
+                  border-left: $dimension_15 solid transparent;
+                  border-right: $dimension_15 solid transparent;
+                  border-bottom: $dimension_10 solid white;
                }
             }
 
@@ -102,19 +115,27 @@
                display: flex;
                flex-direction: column;
                align-items: center;
-               gap: 8px;
+               justify-content: space-evenly;
+               gap: $dimension_10;
 
-               img {
-                  height: 155px;
-                  width: 145px;
-                  object-fit: cover;
-                  padding: 3px 0px 0px;
+               .image {
+                  width: $dimension_30*6;
+                  height: $dimension_20*8;
+
+                  img {
+                     height: 100%;
+                     width: 100%;
+                     object-fit: contain;
+                     padding: $dimension_10*0.3;
+
+                  }
                }
 
                .name {
-                  width: 190px;
-                  padding: 0 8px 0;
-                  font-size: 13px;
+                  width: $dimension_10*19;
+                  padding: 0 $dimension_10 0;
+                  font-size: $dimension_13;
+                  color: rgba(0, 0, 0, 0.8);
                   display: -webkit-box;
                   -webkit-line-clamp: 2;
                   -webkit-box-orient: vertical;
@@ -123,28 +144,28 @@
 
                .sale {
                   background-color: #eba10e;
-                  padding: 3px;
+                  padding: $dimension_10*0.3;
                   border: 2px dotted white;
-                  font-size: 9px;
+                  font-size: $dimension_10;
                   color: white;
                   margin-right: auto;
-                  margin-left: 5px;
+                  margin-left: $dimension_10*0.5;
                }
 
                .sub {
                   display: flex;
                   justify-content: space-between;
-                  gap: 50px;
-                  margin: 0 3px 0;
+                  gap: $dimension_10*5;
+                  margin: 0 $dimension_10*0.3 0;
                   align-items: center;
 
                   .price {
-                     font-size: 15px;
+                     font-size: $dimension_15;
                      color: #EE2C14;
                   }
 
                   .quantity-sale {
-                     font-size: 11px;
+                     font-size: $dimension_13*0.9;
                      color: grey;
                   }
                }
@@ -162,12 +183,14 @@
 
    .btn-view-all {
       margin: auto;
-      margin-top: 30px;
+      margin-top: $dimension_10*2.5;
       color: rgba(0, 0, 0, 0.8);
-      box-shadow: rgba(43, 52, 69, 0.238) 1px 1px 1px 1px;
+      font-size: $dimension_16;
+      font-weight: 500;
+      box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.2);
       border-radius: 1px;
-      width: 300px;
-      padding: 5px 0px;
+      width: $dimension_10*27;
+      padding: $dimension_10 0px;
       background-color: white;
       text-align: center;
    }
@@ -176,7 +199,7 @@
 // keep bar suggest
 .bloc-tabs.scroll-suggest {
    position: fixed;
-   top: 116.2px;
+   top: $dimension_10*11.16;
    z-index: 1000;
    width: 80%;
    box-shadow: rgb(43 52 69 / 10%) 0px 4px 4px;

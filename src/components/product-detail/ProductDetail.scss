@@ -42,14 +42,14 @@ $dimension_32 : 2.085vw;
          max-height: 37vw;
          display: flex;
          padding: $dimension_15;
-         gap: $dimension_20*0.5;
+         gap: $dimension_20*0;
          box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.1);
 
          .left {
             flex: 1;
             display: flex;
             flex-direction: column;
-            gap: 5px;
+            gap: $dimension_13*0.3;
 
             .image-main {
                flex: 5;
@@ -69,12 +69,12 @@ $dimension_32 : 2.085vw;
                max-width: 24.5vw;
 
                img {
-                  padding: 6px;
-                  cursor: pointer;
                   width: 100%;
                   max-height: 7vw;
                   margin: auto;
                   object-fit: cover;
+                  padding: 6px;
+                  cursor: pointer;
 
                   &:hover {
                      border: 1px solid #EE2C14;
@@ -88,6 +88,7 @@ $dimension_32 : 2.085vw;
             display: flex;
             flex-direction: column;
             gap: $dimension_24;
+            padding-left: $dimension_18;
 
             .name {
                font-size: $dimension_24;
@@ -184,12 +185,16 @@ $dimension_32 : 2.085vw;
                }
             }
 
-            .deal {
+            .div-deal {
                display: flex;
                gap: $dimension_32;
                font-size: $dimension_15;
                align-items: center;
                color: grey;
+
+               span:first-child {
+                  min-width: $dimension_32*2.2;
+               }
 
                span:last-child {
                   color: #EE2C14;
@@ -199,7 +204,7 @@ $dimension_32 : 2.085vw;
                }
             }
 
-            .attribute {
+            .div-attribute {
                display: flex;
                gap: $dimension_32;
                align-items: center;
@@ -224,10 +229,89 @@ $dimension_32 : 2.085vw;
 
                      &:hover {
                         border: 1px solid #EE2C14;
+                        color: #EE2C14;
                      }
+                  }
+
+                  .selected {
+                     color: #EE2C14;
+                     border: 1px solid #EE2C14;
+                     background-color: #ee2d141e;
                   }
                }
 
+            }
+
+            .div-quantity {
+               display: flex;
+               gap: $dimension_32;
+               align-items: center;
+
+               .lb-qt {
+                  font-size: $dimension_15;
+                  color: grey;
+                  min-width: $dimension_32*2.2;
+               }
+
+               .quantity {
+                  display: flex;
+                  align-items: center;
+
+                  span {
+                     font-size: $dimension_18;
+                     color: rgba(0, 0, 0, 0.8);
+                     border: 1px solid rgba(128, 128, 128, 0.315);
+                     padding: 1px $dimension_15;
+                  }
+
+                  span:first-child {
+                     border-right: none;
+                     cursor: pointer;
+                  }
+
+                  span:last-child {
+                     border-left: none;
+                     cursor: pointer;
+                  }
+               }
+            }
+
+            .div-action {
+               display: flex;
+               gap: $dimension_20;
+
+               button:first-child {
+                  font-size: $dimension_16;
+                  color: #EE2C14;
+                  padding: $dimension_13 $dimension_20;
+                  border: 1px solid #EE2C14;
+                  background-color: #ee2d1419;
+                  border-radius: 3px;
+               }
+
+               button:last-child {
+                  font-size: $dimension_16;
+                  color: white;
+                  background-color: #FE6232;
+                  padding: $dimension_13 $dimension_20;
+                  border-radius: 3px;
+               }
+            }
+
+            .commit-shop {
+               display: flex;
+               gap: $dimension_13;
+               align-items: center;
+
+               span {
+                  font-size: $dimension_15;
+                  color: rgba(0, 0, 0, 0.9);
+               }
+
+               span:last-child {
+                  color: grey;
+                  font-size: $dimension_13;
+               }
             }
 
 
@@ -235,6 +319,146 @@ $dimension_32 : 2.085vw;
       }
 
       //end top
+
+      .shop {
+         margin-top: $dimension_20;
+         background-color: white;
+         display: flex;
+         box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.1);
+         padding: $dimension_13;
+         align-items: center;
+         gap: $dimension_13;
+         border-radius: 1px;
+
+         .avatar {
+            width: $dimension_20*5;
+            height: $dimension_20*5;
+            padding: $dimension_13*0.5;
+
+            img {
+               width: 100%;
+               height: 100%;
+               object-fit: cover;
+               border-radius: 50%;
+            }
+         }
+
+         .div-info {
+            display: flex;
+            flex-direction: column;
+            gap: $dimension_13*0.3;
+            min-width: $dimension_20*20;
+
+            .name-shop {
+               color: rgba(0, 0, 0, 0.8);
+               font-size: $dimension_18;
+            }
+
+            span {
+               color: grey;
+               font-size: $dimension_13;
+            }
+
+            div {
+               display: flex;
+               gap: $dimension_13*0.5;
+
+               span {
+                  display: flex;
+                  align-items: center;
+                  gap: $dimension_13*0.3;
+                  border: 1px solid rgba(128, 128, 128, 0.315);
+                  padding: 4px $dimension_13*0.8;
+                  font-size: $dimension_13;
+                  border-radius: 3px;
+               }
+
+               span:first-child {
+                  color: #EE2C14;
+                  border: 1px solid #EE2C14;
+                  background-color: #fe623214;
+               }
+            }
+         }
+
+         .div-sub {
+            display: flex;
+            flex-direction: column;
+            gap: $dimension_13;
+            min-width: $dimension_20*10;
+
+            div {
+               display: flex;
+               align-items: center;
+               gap: $dimension_13;
+
+               span {
+                  font-size: $dimension_13;
+                  color: grey
+               }
+
+               span:last-child {
+                  color: #EE2C14;
+               }
+            }
+         }
+
+      }
+
+      //end shop
+
+      .des-product {
+         margin-top: $dimension_13;
+         background-color: white;
+         display: flex;
+         box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.1);
+         border-radius: 1px;
+         padding: 0 $dimension_20*4 $dimension_20 $dimension_20*1.5;
+         display: flex;
+         flex-direction: column;
+
+         .detail {
+            display: flex;
+            flex-direction: column;
+            gap: $dimension_13;
+
+            .item {
+               margin-left: $dimension_20;
+               display: flex;
+               gap: $dimension_30;
+               font-size: $dimension_15;
+               color: rgba(0, 0, 0, 0.8);
+
+               span:first-child {
+                  color: rgba(128, 128, 128, 0.855);
+                  min-width: $dimension_20*6;
+               }
+            }
+         }
+
+         .title {
+            font-size: $dimension_20;
+            color: rgba(0, 0, 0, 0.8);
+            background-color: rgba(128, 128, 128, 0.06);
+            padding: $dimension_13 $dimension_20;
+            border-radius: 5px;
+            margin-bottom: $dimension_13;
+            margin-top: $dimension_30;
+
+         }
+
+         .des {
+            .content {
+               margin-left: $dimension_20;
+
+               p {
+                  font-size: $dimension_15;
+                  color: rgba(0, 0, 0, 0.8);
+               }
+            }
+         }
+      }
+
 
    }
 }

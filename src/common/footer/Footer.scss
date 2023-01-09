@@ -1,38 +1,48 @@
+$dimension_13 : 0.85vw; //1px = 0.065; 2px = 0.13
+$dimension_15 : 0.98vw;
+$dimension_16 : 1.045vw;
+$dimension_18 : 1.175vw;
+$dimension_20 : 1.305vw;
+$dimension_22 : 1.435vw;
+$dimension_24 : 1.565vw;
+$dimension_30 : 1.955vw;
+$dimension_32 : 2.085vw;
+
 .footer {
-   margin-top: 50px;
-   height: 50vh;
+   margin-top: $dimension_24*2.1;
+   height: $dimension_20*15;
    background-color: white;
 
    .hr {
-      border: 1px solid #F6412D;
-      background-color: #F6412D;
+      border: 1.2px solid #f6412dc8;
+      background-color: #f6412dc5;
    }
 
    .items {
       margin: auto;
       max-width: 80%;
-      margin-top: 20px;
+      margin-top: $dimension_20;
       display: flex;
       flex-wrap: wrap;
-      gap: 20px;
+      gap: $dimension_20;
 
       .item {
          width: 1/5;
          flex-grow: 1; // fill content
          display: flex;
          flex-direction: column;
-         gap: 10px;
+         gap: $dimension_13;
 
          .title {
             font-weight: 500;
-            font-size: 13px;
+            font-size: $dimension_13;
          }
 
          .content {
             display: flex;
             flex-direction: column;
             gap: 5px;
-            font-size: 13px;
+            font-size: $dimension_13;
             color: grey;
          }
       }
@@ -41,7 +51,7 @@
    .hr-sub {
       max-width: 80%;
       margin: auto;
-      margin-top: 20px;
+      margin-top: $dimension_20;
       border-bottom: 0.5px solid rgba(128, 128, 128, 0.295);
    }
 }

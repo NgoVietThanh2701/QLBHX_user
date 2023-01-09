@@ -58,12 +58,12 @@ const ProductDetail = () => {
       },
       {
          id: 2,
-         name: "Size",
+         name: "Kích cỡ",
          option: [
-            'L',
-            'M',
-            'XL',
-            'LLL'
+            'Size L',
+            'Size M',
+            'Size XL',
+            'Size XXL'
          ]
       }
    ]
@@ -79,10 +79,9 @@ const ProductDetail = () => {
    }
 
    const [imageActive, setImageActive] = useState(Sdata[0].cover);
-
-   const toggleImage = (img) => {
-      setImageActive(img);
-   }
+   const [quantity, setQuantity] = useState(1);
+   const [color, setColor] = useState("");
+   const [size, setSize] = useState("");
 
    return (
       <section className='product-detail'>
@@ -105,7 +104,7 @@ const ProductDetail = () => {
                      <Slider {...settings}>
                         {Sdata.map((value, index) => {
                            return <img key={index}
-                              onClick={() => toggleImage(value.cover)}
+                              onClick={() => setImageActive(value.cover)}
                               src={value.cover} alt='' />
                         })}
                      </Slider>
@@ -138,31 +137,106 @@ const ProductDetail = () => {
                      <div className="price">50.000</div>
                      <div className="discount">40% giảm</div>
                   </div>
-                  <div className="deal">
+                  <div className="div-deal">
                      <span>Deal sốc</span>
                      <span>Mua kèm Deal sốc</span>
                   </div>
                   {attribute.map((value, index) => {
                      return (
-                        <div className="attribute" key={index}>
+                        <div className="div-attribute" key={index}>
                            <div>{value.name}</div>
                            <div>
-                              {value.option.map((op, index) => {
+                              {value.option.map((op, id) => {
                                  return (
-                                    <span key={index}>{op}</span>
+                                    <span className={index === 0 ? (color === id ? 'selected' : '') : (size === id ? 'selected' : '')}
+                                       onClick={() => index === 0 ? setColor(id) : setSize(id)}
+                                       key={id}>
+                                       {op}
+                                    </span>
                                  )
                               })}
                            </div>
                         </div>
                      )
                   })}
+                  <div className="div-quantity">
+                     <span className='lb-qt'>Số lượng</span>
+                     <div className="quantity">
+                        <span onClick={() => quantity > 1 && setQuantity(quantity - 1)}>-</span>
+                        <span>{quantity}</span>
+                        <span onClick={() => setQuantity(quantity + 1)}>+</span>
+                     </div>
+                     <span className="lb-qt">1230 sản phẩm có sẵn</span>
+                  </div>
+                  <div className="div-action">
+                     <button>Thêm vào giỏ hàng</button>
+                     <button>Mua ngay</button>
+                  </div>
+                  <div className="commit-shop">
+                     <span>DeftShop đảm bảo</span>
+                     <span>3 Ngày trả hàng / Hoàn tiền</span>
+                  </div>
                </div>
             </div>
-            <div className="body">
-
+            <div className="shop">
+               <div className="avatar">
+                  <img src={Sdata[0].cover} alt="" />
+               </div>
+               <div className="div-info">
+                  <span className='name-shop'>Ngo viet thanh Shop</span>
+                  <span> Online 11 phút trước</span>
+                  <div>
+                     <span><i class="fa-regular fa-message"></i>Chát ngay</span>
+                     <span><i class="fa-regular fa-square-minus"></i>Xem Shop</span>
+                  </div>
+               </div>
+               <div className="div-sub">
+                  <div>
+                     <span>Tham gia</span>
+                     <span>13 tháng trước</span>
+                  </div>
+                  <div>
+                     <span>Sản phẩm</span>
+                     <span>562</span>
+                  </div>
+               </div>
+               <div className="div-sub">
+                  <div>
+                     <span>Đánh giá</span>
+                     <span> 2.2k</span>
+                  </div>
+                  <div>
+                     <span>Tỉ lệ phản hồi</span>
+                     <span>80%</span>
+                  </div>
+               </div>
             </div>
-            <div className="bottom">
-
+            <div className="des-product">
+               <div className="detail">
+                  <p className='title uppercase'>Chi tiết sản phẩm</p>
+                  <div className="item">
+                     <span>Danh mục</span>
+                     <span>Váy Nữ</span>
+                  </div>
+                  <div className="item">
+                     <span>Chất liệu</span>
+                     <span>Cotton</span>
+                  </div>
+                  <div className="item">
+                     <span>Xuất xứ</span>
+                     <span>Trung quốc</span>
+                  </div>
+               </div>
+               <div className="des">
+                  <p className='title uppercase'>Mô tả sản phẩm</p>
+                  <div className="content">
+                     <p>Các sp của shop đa số đều có đăng kèm ảnh thật sp ở cuối</p>
+                     <p>Khi đặt hàng các bạn đọc kỹ thông tin
+                        sp và đặt đơn với đúng màu và số lượng để tránh gửi hàng nhầm lẫn ạ.</p>
+                     <p>Nếu anh chị có hỗ trợ gì về sản phẩm , anh chị vui long chát với
+                        shop để đc nhân viên tư vấn và hỗ trợ cụ thể cho anh chị ạ</p>
+                  </div>
+               </div>
             </div>
          </div>
       </section >

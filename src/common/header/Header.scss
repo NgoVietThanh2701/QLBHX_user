@@ -1,14 +1,25 @@
 //------------- head ----------
+$dimension_10 : 0.655vw;
+$dimension_13 : 0.85vw; //1px = 0.065; 2px = 0.13
+$dimension_15 : 0.98vw;
+$dimension_16 : 1.045vw;
+$dimension_18 : 1.175vw;
+$dimension_20 : 1.305vw;
+$dimension_22 : 1.435vw;
+$dimension_24 : 1.565vw;
+$dimension_30 : 1.955vw;
+$dimension_32 : 2.085vw;
+
 .head {
    background-color: #F6412D;
-   padding: 10px 0;
+   padding: $dimension_13*0.5 0;
    color: #fff;
 
    i {
       margin-right: 6px;
-      font-size: 11px;
+      font-size: $dimension_10;
       border: 1px solid white;
-      padding: 3px 5px;
+      padding: $dimension_10*0.3 $dimension_10*0.5;
       border-radius: 50%;
    }
 
@@ -17,33 +28,33 @@
    .head-item {
       display: flex;
       align-items: center;
-      gap: 7px;
+      gap: $dimension_10*0.7;
    }
 
    label {
-      font-size: 13px;
+      font-size: $dimension_13;
    }
 }
 
 // ----------------- search ---------------------
 .search {
-   padding: 5px 0 3px 0;
+   padding: $dimension_10*0.5 0 $dimension_10*0.3 0;
    background-image: linear-gradient(#F6412D, #FE6232);
 
    .logo {
       width: 15%;
       display: flex;
-      gap: 10px;
+      gap: $dimension_10;
       align-items: center;
 
       i {
-         font-size: 30px;
+         font-size: $dimension_30;
          color: white;
       }
 
       span {
          color: white;
-         font-size: 24px;
+         font-size: $dimension_24;
          font-weight: 500;
       }
    }
@@ -56,21 +67,21 @@
       i {
          width: 5%;
          text-align: center;
-         height: 40px;
-         padding: 10px;
-         font-size: 20px;
-         margin-right: 10px;
+         height: $dimension_20*2;
+         padding: $dimension_10;
+         font-size: $dimension_20;
+         margin-right: $dimension_10;
          color: white;
       }
 
       input {
          width: 100%;
-         height: 40px;
+         height: $dimension_20*2;
       }
 
       ::placeholder {
-         font-size: 15px;
-         padding-left: 10px;
+         font-size: $dimension_15;
+         padding-left: $dimension_10;
       }
    }
 
@@ -79,11 +90,11 @@
 
       .item {
          position: relative;
-         margin-right: 30px;
+         margin-right: $dimension_30;
 
          i {
             color: white;
-            font-size: 20px;
+            font-size: $dimension_20;
 
          }
 
@@ -91,13 +102,13 @@
             position: absolute;
             top: -9px;
             right: -12px;
-            height: 18px;
-            width: 20px;
+            height: $dimension_18;
+            width: $dimension_20;
             border-radius: 50%;
             text-align: center;
             background-color: white;
-            font-size: 14px;
-            color: red;
+            font-size: $dimension_13;
+            color: #F6412D;
             font-weight: 500
          }
       }
@@ -109,13 +120,12 @@
 
 // ------------------- navbar-------
 .header {
-   height: 3.5vh;
    background-color: #FE6232;
-   padding-bottom: 5px;
+   padding-bottom: $dimension_10*0.5;
 
    ul {
       display: flex;
-      gap: 15px;
+      gap: $dimension_15;
       max-width: 56%;
       margin: auto;
 
@@ -123,7 +133,7 @@
 
          a {
             transition: 0.5s; // hover 0.5s
-            font-size: 11px;
+            font-size: $dimension_10*1.1;
             font-weight: 400;
             color: white;
          }

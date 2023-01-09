@@ -1,81 +1,93 @@
+$dimension_10_negative : -0.655vw;
+$dimension_10 : 0.655vw;
+$dimension_13 : 0.85vw; //1px = 0.065; 2px = 0.13
+$dimension_15 : 0.98vw;
+$dimension_16 : 1.045vw;
+$dimension_18 : 1.175vw;
+$dimension_20 : 1.305vw;
+$dimension_22 : 1.435vw;
+$dimension_24 : 1.565vw;
+$dimension_30 : 1.955vw;
+$dimension_32 : 2.085vw;
+
 .category-detail {
    max-width: 80%;
    margin: auto;
    display: flex;
-   margin-top: 30px;
-   gap: 20px;
+   margin-top: $dimension_30;
+   gap: $dimension_20;
 
    .left {
       flex: 1;
 
       .hr {
-         border-bottom: 1px solid rgba(128, 128, 128, 0.179);
+         border-bottom: 1px solid rgba(128, 128, 128, 0.356);
       }
 
       .title {
-         padding: 10px 0;
+         padding: $dimension_10 0px;
 
          span {
             font-weight: 600;
-            font-size: 16px;
-            margin-left: 10px;
-            color: rgba(0, 0, 0, 0.766);
+            font-size: $dimension_16;
+            margin-left: $dimension_10;
+            color: rgba(0, 0, 0, 0.8);
          }
 
          i {
-            font-size: 14px;
-            color: rgba(0, 0, 0, 0.777);
+            font-size: $dimension_15*0.9;
+            color: rgba(0, 0, 0, 0.8);
          }
       }
 
       .top {
-         margin-top: 10px;
+         margin-top: $dimension_10;
 
          .category-name {
             color: #EE2C14;
-            font-size: 14px;
+            font-size: $dimension_15*0.9;
             font-weight: 600;
          }
 
          .sub-category {
-            margin-top: 10px;
+            margin-top: $dimension_10;
             display: flex;
             flex-direction: column;
-            gap: 10px;
-            color: rgba(0, 0, 0, 0.956);
-            font-size: 14px;
+            gap: $dimension_10;
+            color: rgba(0, 0, 0, 0.8);
+            font-size: $dimension_13*1.1;
          }
       }
 
       .bottom {
-         margin-top: 20px;
-         font-weight: 600;
-         font-size: 16px;
-         color: rgba(0, 0, 0, 0.766);
+         margin-top: $dimension_10*2;
+         font-weight: 500;
+         font-size: $dimension_16;
+         color: rgba(0, 0, 0, 0.8);
       }
    }
 
    .right {
-      flex: 6;
+      flex: 5.7;
 
       .top {
          background-color: #EDEDED;
          display: flex;
-         padding: 12px;
+         padding: $dimension_10;
          align-items: center;
-         gap: 18px;
-         font-size: 14px;
+         gap: $dimension_18;
+         font-size: $dimension_15*0.9;
 
          .sort-title {
-            font-size: 14px;
-            color: rgba(0, 0, 0, 0.842);
+            font-size: $dimension_15*0.9;
+            color: rgba(0, 0, 0, 0.8);
          }
 
          .option {
             background-color: white;
-            padding: 8px 12px;
-            color: rgba(0, 0, 0, 0.923);
-            border-radius: 1px;
+            padding: $dimension_10*0.8 $dimension_13;
+            color: rgba(0, 0, 0, 0.8);
+            border-radius: 2px;
             cursor: pointer;
          }
 

@@ -1,30 +1,41 @@
+$dimension_10 : 0.655vw;
+$dimension_13 : 0.85vw; //1px = 0.065; 2px = 0.13
+$dimension_15 : 0.98vw;
+$dimension_16 : 1.045vw;
+$dimension_18 : 1.175vw;
+$dimension_20 : 1.305vw;
+$dimension_22 : 1.435vw;
+$dimension_24 : 1.565vw;
+$dimension_30 : 1.955vw;
+$dimension_32 : 2.085vw;
+
 .main-home {
    display: flex;
    width: 80%;
    margin: auto;
-   height: 19vw;
+   height: 19.5vw;
    gap: 3px;
-   padding-top: 15px;
+   padding-top: $dimension_10*0.8;
 
    .left-slider {
-      width: 70%;
+      width: 65%;
 
       img {
          width: 100%;
-         height: 18.2vw;
+         max-height: 19.2vw;
          object-fit: cover;
       }
 
       ul {
          position: absolute;
-         bottom: 5px;
+         bottom: $dimension_10*0.5;
 
          li {
             border: 1px solid #b8b7b7;
             border-radius: 50%;
             padding: 1px;
-            width: 13px;
-            height: 13px;
+            width: $dimension_13;
+            height: $dimension_13;
 
             button {
                // button dots click slider
@@ -32,7 +43,7 @@
                color: transparent !important;
 
                &::before {
-                  font-size: 10px !important;
+                  font-size: $dimension_10 !important;
                   color: whitesmoke;
                   position: absolute;
                   top: -4px;
@@ -46,8 +57,8 @@
    }
 
    .right-slider {
-      width: 30%;
-      height: 18vw;
+      width: 35%;
+      height: 19vw;
       display: flex;
       flex-direction: column;
       gap: 3px;
@@ -78,8 +89,8 @@
    width: 80%;
    margin: auto;
    display: flex;
-   gap: 5px;
-   margin-top: 22px;
+   gap: $dimension_10*0.5;
+   margin-top: $dimension_22;
 
    .service {
       width: 100%;
@@ -89,15 +100,15 @@
 
 
       img {
-         width: 45px;
-         height: 45px;
+         width: $dimension_22*2;
+         height: $dimension_22*2;
          object-fit: cover;
       }
 
       span {
-         font-size: 13px;
+         font-size: $dimension_13;
          color: rgba(0, 0, 0, 0.923);
-         padding: 7px;
+         padding: $dimension_10*0.8;
          text-align: center;
       }
 
@@ -109,4 +120,5 @@
    width: 100%;
    margin: 0;
    background-color: white;
+   box-shadow: 0 1px 1px 1px rgba(0, 0, 0, 0.05);
 }

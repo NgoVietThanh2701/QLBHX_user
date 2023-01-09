@@ -173,7 +173,7 @@ const SampleNextArrow = (props) => {
    const { onClick } = props;
    if (!onClick) return;
    return (
-      <div className='control-btn' onClick={onClick}>
+      <div className='control-btn-cate' onClick={onClick}>
          <button className='next'>
             <i className='fa fa-long-arrow-alt-right'></i>
          </button>
@@ -185,7 +185,7 @@ const SamplePrevArrow = (props) => {
    const { onClick } = props;
    if (!onClick) return;
    return (
-      <div className='control-btn' onClick={onClick}>
+      <div className='control-btn-cate' onClick={onClick}>
          <button className='prev'>
             <i className='fa fa-long-arrow-alt-left'></i>
          </button>

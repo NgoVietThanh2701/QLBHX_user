@@ -1,14 +1,26 @@
+$dimension_10 : 0.655vw;
+$dimension_13 : 0.85vw; //1px = 0.065; 2px = 0.13
+$dimension_15 : 0.98vw;
+$dimension_16 : 1.045vw;
+$dimension_18 : 1.175vw;
+$dimension_20 : 1.305vw;
+$dimension_22 : 1.435vw;
+$dimension_24 : 1.565vw;
+$dimension_30 : 1.955vw;
+$dimension_32 : 2.085vw;
+
 .category {
    background-color: white;
    width: 80%;
    margin: auto;
    margin-top: 3vh;
+   box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.05);
 
    .title {
       color: grey;
-      padding: 12px;
+      padding: $dimension_13;
       font-weight: 400;
-      margin-left: 10px;
+      margin-left: $dimension_10;
    }
 
    .items {
@@ -25,28 +37,28 @@
 
       .item {
          width: 100%;
-         height: 125px;
-         margin-top: 5px;
+         height: $dimension_20*6.25;
+         margin-top: $dimension_10*0.5;
          display: flex;
          flex-direction: column;
          align-items: center;
-         gap: 10px;
+         gap: $dimension_10;
 
          img {
-            width: 70px;
-            height: 70px;
+            width: $dimension_20*3.5;
+            height: $dimension_20*3.5;
             object-fit: cover;
          }
 
          span {
-            font-size: 13px;
+            font-size: $dimension_13;
             text-align: center;
             overflow: hidden;
          }
       }
 
       .icon-circle {
-         padding: 5px;
+         padding: $dimension_10*0.5;
          background: #dedfe3a0;
          text-align: center;
          border-radius: 50%;
@@ -56,19 +68,19 @@
 }
 
 //--------------------- button control
-.control-btn .next,
-.control-btn .prev {
+.control-btn-cate .next,
+.control-btn-cate .prev {
    position: absolute;
-   top: 40%;
-   width: 40px;
-   height: 40px;
+   top: 44%;
+   width: $dimension_20*2;
+   height: $dimension_20*2;
    background-color: white;
    border-radius: 50%;
    transform: 0.5s;
    z-index: 10;
 
    i {
-      font-size: 14px;
+      font-size: $dimension_13;
       transition: 0.5s;
       color: grey;
    }
@@ -88,10 +100,10 @@
    }
 }
 
-.control-btn .prev {
-   left: -20px;
+.control-btn-cate .prev {
+   left: -10px;
 }
 
-.control-btn .next {
-   right: -20px;
+.control-btn-cate .next {
+   right: -10px;
 }

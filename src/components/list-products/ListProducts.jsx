@@ -14,7 +14,9 @@ const Products = ({ currentItems }) => {
                   <Link to='products'>
                      <div className="items" key={index}>
                         <div className="item">
-                           <img src={value.cover} alt="" />
+                           <div className="image">
+                              <img src={value.cover} alt="" />
+                           </div>
                            <div className='name'>{value.desc}</div>
                            <div className="sale">Giảm 10đ</div>
                            <div className="list-price">
