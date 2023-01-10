@@ -4,47 +4,12 @@ import Slider from 'react-slick';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Rating from '@mui/material/Rating';
+import PaginatedProducts from '../list-products/ListProducts'
+import { Sdata_product } from '../data';
+import CardProduct from '../card-product/CardProduct';
+
 
 const ProductDetail = () => {
-
-   const Sdata = [
-      {
-         id: 1,
-         title: "50% Off For Your First Shopping",
-         desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quis lobortis consequat eu, quam etiam at quis ut convallis.",
-         cover: '../images/products/product_5.jpg',
-      },
-      {
-         id: 2,
-         title: "50% Off For Your First Shopping",
-         desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quis lobortis consequat eu, quam etiam at quis ut convallis.",
-         cover: '../images/products/product_1.jpg',
-      },
-      {
-         id: 1,
-         title: "50% Off For Your First Shopping",
-         desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quis lobortis consequat eu, quam etiam at quis ut convallis.",
-         cover: '../images/products/product_2.jpg',
-      },
-      {
-         id: 2,
-         title: "50% Off For Your First Shopping",
-         desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quis lobortis consequat eu, quam etiam at quis ut convallis.",
-         cover: '../images/products/product_3.jpg',
-      },
-      {
-         id: 1,
-         title: "50% Off For Your First Shopping",
-         desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quis lobortis consequat eu, quam etiam at quis ut convallis.",
-         cover: '../images/products/product_4.jpg',
-      },
-      {
-         id: 2,
-         title: "50% Off For Your First Shopping",
-         desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quis lobortis consequat eu, quam etiam at quis ut convallis.",
-         cover: '../images/products/product_5.jpg',
-      },
-   ]
 
    const attribute = [
       {
@@ -78,7 +43,17 @@ const ProductDetail = () => {
       prevArrow: <SamplePrevArrow />,
    }
 
-   const [imageActive, setImageActive] = useState(Sdata[0].cover);
+   const settings_2 = {
+      dots: false,
+      infinite: false, // don't click when end list
+      slidesToShow: 6,
+      slidesToScroll: 3,
+      speed: 500,
+      nextArrow: <SampleNextArrow />,
+      prevArrow: <SamplePrevArrow />,
+   }
+
+   const [imageActive, setImageActive] = useState(Sdata_product[0].cover);
    const [quantity, setQuantity] = useState(1);
    const [color, setColor] = useState("");
    const [size, setSize] = useState("");
@@ -102,7 +77,7 @@ const ProductDetail = () => {
                   </div>
                   <div className="image-list">
                      <Slider {...settings}>
-                        {Sdata.map((value, index) => {
+                        {Sdata_product.map((value, index) => {
                            return <img key={index}
                               onClick={() => setImageActive(value.cover)}
                               src={value.cover} alt='' />
@@ -112,7 +87,7 @@ const ProductDetail = () => {
                </div>
                <div className="right">
                   <div className="name">
-                     {Sdata[1].title}
+                     {Sdata_product[1].title}
                   </div>
                   <div className="div-info">
                      <div className="eva-star">
@@ -180,7 +155,7 @@ const ProductDetail = () => {
             </div>
             <div className="shop">
                <div className="avatar">
-                  <img src={Sdata[0].cover} alt="" />
+                  <img src={Sdata_product[0].cover} alt="" />
                </div>
                <div className="div-info">
                   <span className='name-shop'>Ngo viet thanh Shop</span>
@@ -239,6 +214,18 @@ const ProductDetail = () => {
                </div>
             </div>
          </div>
+         <div className='other-product-title'>CÁC SẢN PHẨM KHÁC CỦA SHOP</div>
+         <div className="product-shop">
+            <Slider {...settings_2}>
+               {Sdata_product.map((value, index) => {
+                  return (
+                     <CardProduct value={value} index={index} />
+                  )
+               })}
+            </Slider>
+         </div>
+         <div className='other-product-title'>CÓ THỂ BẠN CŨNG THÍCH</div>
+         <PaginatedProducts items={Sdata_product} itemsPerPage={12} />
       </section >
    )
 }

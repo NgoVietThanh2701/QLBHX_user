@@ -1,0 +1,113 @@
+$dimension_10 : 0.655vw;
+$dimension_13 : 0.85vw; //1px = 0.065; 2px = 0.13
+$dimension_15 : 0.98vw;
+$dimension_16 : 1.045vw;
+$dimension_18 : 1.175vw;
+$dimension_20 : 1.305vw;
+$dimension_22 : 1.435vw;
+$dimension_24 : 1.565vw;
+$dimension_30 : 1.955vw;
+$dimension_32 : 2.085vw;
+
+.card-products {
+   width: 1/6;
+   flex-grow: 1;
+   position: relative;
+   background-color: white;
+   box-shadow: 1px 1px 1px 1px rgba(100, 97, 97, 0.253);
+   border: 1.5px solid rgba(128, 128, 128, 0.114);
+
+   &:hover {
+      border: 1.5px solid red;
+
+   }
+
+   .discount {
+      position: absolute;
+      z-index: 10;
+      top: 0px;
+      right: 0px;
+      background-color: #fccd12;
+      font-size: $dimension_13;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 0px 1px 0 1px;
+
+      .dis {
+         color: #EE2C14;
+      }
+
+      .text {
+         color: white;
+      }
+
+      .triangle {
+         width: 0;
+         height: 0;
+         border-left: $dimension_15 solid transparent;
+         border-right: $dimension_15 solid transparent;
+         border-bottom: $dimension_10 solid white;
+      }
+   }
+
+   .card {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-evenly;
+      gap: $dimension_10;
+
+      .image {
+         width: $dimension_30*6;
+         height: $dimension_20*8;
+
+         img {
+            height: 100%;
+            width: 100%;
+            object-fit: contain;
+
+         }
+      }
+
+      .name {
+         width: $dimension_10*19;
+         padding: 0 $dimension_10 0;
+         font-size: $dimension_13;
+         color: rgba(0, 0, 0, 0.8);
+         display: -webkit-box;
+         -webkit-line-clamp: 2;
+         -webkit-box-orient: vertical;
+         overflow: hidden;
+      }
+
+      .sale {
+         background-color: #eba10e;
+         padding: $dimension_10*0.3;
+         border: 2px dotted white;
+         font-size: $dimension_10;
+         color: white;
+         margin-right: auto;
+         margin-left: $dimension_10*0.5;
+      }
+
+      .sub {
+         display: flex;
+         justify-content: space-between;
+         gap: $dimension_10*5;
+         margin: 0 $dimension_10*0.3 0;
+         align-items: center;
+
+         .price {
+            font-size: $dimension_15;
+            color: #EE2C14;
+         }
+
+         .quantity-sale {
+            font-size: $dimension_13*0.9;
+            color: grey;
+         }
+      }
+   }
+}

@@ -74,7 +74,7 @@ $dimension_32 : 2.085vw;
             position: relative;
             background-color: white;
             box-shadow: 1px 1px 1px 1px rgba(100, 97, 97, 0.253);
-            border: 1px solid transparent;
+            border: 1.5px solid transparent;
 
             &:hover {
                border: 1.5px solid red;
@@ -126,7 +126,6 @@ $dimension_32 : 2.085vw;
                      height: 100%;
                      width: 100%;
                      object-fit: contain;
-                     padding: $dimension_10*0.3;
 
                   }
                }
@@ -170,12 +169,6 @@ $dimension_32 : 2.085vw;
                   }
                }
             }
-
-            // set 4 item/row1 3item/row2 ...
-            // &:nth-child(7n+5) {
-            //    width: calc(100%/3);
-            //    flex-grow: 0;
-            // }
          }
       }
 
@@ -199,7 +192,7 @@ $dimension_32 : 2.085vw;
 // keep bar suggest
 .bloc-tabs.scroll-suggest {
    position: fixed;
-   top: $dimension_10*11.16;
+   top: $dimension_10*11.3;
    z-index: 1000;
    width: 80%;
    box-shadow: rgb(43 52 69 / 10%) 0px 4px 4px;

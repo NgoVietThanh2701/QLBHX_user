@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const Head = () => {
    return (
@@ -6,16 +7,30 @@ const Head = () => {
          <section className='head'>
             <div className="container flex_2">
                <div className='head-item'>
-                  <label>Kênh người bán</label>
+                  <Link>
+                     <label>Kênh người bán</label>
+                  </Link>
                   <hr width="1" size="15" />
-                  <label>Trở thành người bán DeftShop</label>
+                  <Link>
+                     <label>Trở thành người bán DeftShop</label>
+                  </Link>
+                  <hr width="1" size="15" />
+                  <Link>
+                     <label>Tải ứng dụng</label>
+                  </Link>
                </div>
                <div className='head-item'>
                   <i class="fa-solid fa-question"></i>
-                  <label>Hổ trợ</label>
-                  <label>Đăng ký</label>
+                  <Link>
+                     <label>Hổ trợ</label>
+                  </Link>
+                  <Link>
+                     <label>Đăng ký</label>
+                  </Link>
                   <hr width="1" size="15" />
-                  <label>Đăng nhập</label>
+                  <Link className='text' to='/login'> {/* '/login': origin url | 'login': continues url*/}
+                     <label>Đăng nhập</label>
+                  </Link>
                </div>
             </div>
          </section>

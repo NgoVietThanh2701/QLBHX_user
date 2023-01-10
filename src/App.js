@@ -1,23 +1,23 @@
 import React from "react"
 import "./App.css"
 import { BrowserRouter, Route, Routes } from "react-router-dom"
-import Header from "./common/header/Header";
-import Home from "./pages/Home";
+import HomePage from "./pages/HomePage";
 import Footer from "./common/footer/Footer";
-import Category from "./pages/Category";
-import ProductDetail from "./components/product-detail/ProductDetail";
+import CategoryDetailPage from "./pages/CategoryDetailPage";
+import ProductDetailPage from "./pages/ProductDetailPage";
+import AuthPage from "./pages/AuthPage";
 
 function App() {
   return (
     <>
       <BrowserRouter>
-        <Header />
         <Routes>
-          <Route path='/' element={<Home />} />
+          <Route path='/' element={<HomePage />} />
           <Route path="category-detail" >
-            <Route index element={<Category />} />
-            <Route path="products" element={<ProductDetail />} />
+            <Route index element={<CategoryDetailPage />} />
+            <Route path="products" element={<ProductDetailPage />} />
           </Route>
+          <Route path="login" element={<AuthPage />} />
         </Routes>
         <Footer />
       </BrowserRouter>

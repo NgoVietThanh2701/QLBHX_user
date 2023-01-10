@@ -12,11 +12,10 @@ $dimension_32 : 2.085vw;
 
 .head {
    background-color: #F6412D;
-   padding: $dimension_13*0.5 0;
-   color: #fff;
+   padding: $dimension_13*0.4 0;
+   color: white;
 
    i {
-      margin-right: 6px;
       font-size: $dimension_10;
       border: 1px solid white;
       padding: $dimension_10*0.3 $dimension_10*0.5;
@@ -28,12 +27,23 @@ $dimension_32 : 2.085vw;
    .head-item {
       display: flex;
       align-items: center;
-      gap: $dimension_10*0.7;
+      gap: $dimension_10*0.8;
+
+      hr {
+         size: 50px;
+         color: red;
+      }
+
+      label {
+         font-size: $dimension_13*0.95;
+         color: white;
+
+         &:hover {
+            color: rgba(255, 255, 255, 0.65)
+         }
+      }
    }
 
-   label {
-      font-size: $dimension_13;
-   }
 }
 
 // ----------------- search ---------------------

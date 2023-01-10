@@ -18,7 +18,7 @@ $dimension_32 : 2.085vw;
       background-color: #f6412dc5;
    }
 
-   .items {
+   .footer-items {
       margin: auto;
       max-width: 80%;
       margin-top: $dimension_20;
@@ -26,7 +26,7 @@ $dimension_32 : 2.085vw;
       flex-wrap: wrap;
       gap: $dimension_20;
 
-      .item {
+      .footer-item {
          width: 1/5;
          flex-grow: 1; // fill content
          display: flex;

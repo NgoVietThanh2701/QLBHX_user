@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import CardProduct from '../card-product/CardProduct';
 import './Suggest.scss';
 
 const Suggest = () => {
@@ -182,24 +183,7 @@ const Suggest = () => {
                <div className={toggleState === 1 ? "active-content" : "content"}>
                   {Sdata.map((value, index) => {
                      return (
-                        <div className="items" key={index}>
-                           <div className="item">
-                              <div className="image">
-                                 <img src={value.cover} alt="" />
-                              </div>
-                              <div className='name'>{value.desc}</div>
-                              <div className="sale">Giảm 10đ</div>
-                              <div className="sub">
-                                 <span className="price">500.000 </span>
-                                 <span className="quantity-sale">Đã bán 4.5k</span>
-                              </div>
-                           </div>
-                           <div className="discount">
-                              <div className="dis">25%</div>
-                              <div className="text">giảm</div>
-                              <div className="triangle"></div>
-                           </div>
-                        </div>
+                        <CardProduct value={value} index={index} />
                      )
                   })}
                </div>
@@ -208,7 +192,9 @@ const Suggest = () => {
                      return (
                         <div className="items" key={index}>
                            <div className="item">
-                              <img src={value.cover} alt="" />
+                              <div className="image">
+                                 <img src={value.cover} alt="" />
+                              </div>
                               <div className='name'>{value.desc}</div>
                               <div className="sale">Giảm 10đ</div>
                               <div className="sub">
