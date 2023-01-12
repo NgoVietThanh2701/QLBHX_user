@@ -55,7 +55,7 @@ $text_color : #EE2C14;
    // end title
 
    .body {
-      height: 38vw;
+      //height: 38vw;
       display: flex;
       background-image: linear-gradient(#ED4D2B, #F25D25);
       padding: 0px 15%;
@@ -85,7 +85,8 @@ $text_color : #EE2C14;
             margin: $dimension_10*2 $dimension_10*3;
             display: flex;
             flex-direction: column;
-            gap: $dimension_10;
+            gap: $dimension_10*0.8;
+            max-height: 15vw;
 
             .title {
                font-size: $dimension_22;
@@ -164,7 +165,7 @@ $text_color : #EE2C14;
             }
 
             .advise {
-               margin-top: $dimension_10*2;
+               margin-top: $dimension_10;
                font-size: $dimension_13;
                color: rgba(128, 128, 128, 0.6);
                display: flex;
@@ -178,6 +179,8 @@ $text_color : #EE2C14;
             }
 
          }
+
+         //end form
       }
    }
 }

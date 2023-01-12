@@ -1,22 +1,20 @@
 import React, { useState } from 'react'
 import PaginatedProducts from '../list-products/ListProducts'
 import './CategoryDetail.scss'
-import { Sdata } from '../data';
 
-const CategoryDetail = () => {
+const CategoryDetail = ({ type, products }) => {
 
    const [sortOption, setSortOption] = useState(1);
 
-   const renderSwitch = (param) => {
-      switch (param) {
-         case 1: return Sdata;
-         case 2: return Sdata.reverse();
-         default: return Sdata;
-      }
-   }
 
-   const option = (index) => {
-      setSortOption(index);
+   const renderSwitchSort = (param) => {
+      switch (param) {
+         case 1: return products;
+         case 2: return [...products].sort((a, b) => b.id - a.id);
+         //case 3: return [...products].filter(time => time.id > 20);
+         case 3: return [...products].sort((a, b) => b.discount - a.discount);
+         default: return products;
+      }
    }
 
    return (
@@ -28,13 +26,15 @@ const CategoryDetail = () => {
             </div>
             <div className="hr"></div>
             <div className="top">
-               <div className="category-name">Thoi trang nam</div>
+               <div className="category-name active-type">{type[0] && type[0].category.name}</div>
                <div className="sub-category capitalize">
-                  <span>Ao khoac nam</span>
-                  <span>Quan nam</span>
-                  <span>quan the thao</span>
-                  <span>Ao </span>
-                  <span>Ao  nam</span>
+                  {type && type.map((value, index) => {
+                     return (
+                        <span key={index}>
+                           {value.name}
+                        </span>
+                     )
+                  })}
                </div>
             </div>
             <div className="bottom">
@@ -45,11 +45,14 @@ const CategoryDetail = () => {
          <div className="right">
             <div className="top">
                <div className="sort-title">Sắp xếp theo</div>
-               <div onClick={() => option(1)} className={sortOption === 1 ? "option active" : "option"}>Phổ biến</div>
-               <div onClick={() => option(2)} className={sortOption === 2 ? "option active" : "option"}>Mới nhất</div>
-               <div onClick={() => option(3)} className={sortOption === 3 ? "option active" : "option"}>Bán chạy</div>
+               <div onClick={() => setSortOption(1)} className={sortOption === 1 ? "option active" : "option"}>Phổ biến</div>
+               <div onClick={() => setSortOption(2)} className={sortOption === 2 ? "option active" : "option"}>Mới nhất</div>
+               <div onClick={() => setSortOption(3)} className={sortOption === 3 ? "option active" : "option"}>Giảm giá</div>
             </div>
-            <PaginatedProducts items={renderSwitch(sortOption)} itemsPerPage={15} />
+            {type.length > 0 ?
+               <PaginatedProducts items={renderSwitchSort(sortOption)}
+                  itemsPerPage={products.length % 5 === 0 ? products.length : parseInt(products.length / 5) * 5} />
+               : <div className='check-null'>Danh mục hiện chưa có sản phẩm!</div>}
          </div>
       </section>
    )

@@ -44,17 +44,24 @@ $dimension_32 : 2.085vw;
          margin-top: $dimension_10;
 
          .category-name {
-            color: #EE2C14;
+            color: rgba(0, 0, 0, 0.8);
             font-size: $dimension_15*0.9;
             font-weight: 600;
+            cursor: pointer;
+         }
+
+         .active-type {
+            color: #EE2C14;
          }
 
          .sub-category {
+            cursor: pointer;
             margin-top: $dimension_10;
             display: flex;
             flex-direction: column;
             gap: $dimension_10;
             color: rgba(0, 0, 0, 0.8);
+            font-weight: 400;
             font-size: $dimension_13*1.1;
          }
       }
@@ -98,5 +105,11 @@ $dimension_32 : 2.085vw;
 
       }
 
+      .check-null {
+         margin: auto;
+         color: rgba(128, 128, 128, 0.778);
+         font-size: $dimension_16;
+         padding: $dimension_20 $dimension_10;
+      }
    }
 }

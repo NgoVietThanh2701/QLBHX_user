@@ -24,11 +24,11 @@ const Head = () => {
                   <Link>
                      <label>Hổ trợ</label>
                   </Link>
-                  <Link>
+                  <Link to='/sign-up' >
                      <label>Đăng ký</label>
                   </Link>
                   <hr width="1" size="15" />
-                  <Link className='text' to='/login'> {/* '/login': origin url | 'login': continues url*/}
+                  <Link to='/login'> {/* '/login': origin url | 'login': continues url*/}
                      <label>Đăng nhập</label>
                   </Link>
                </div>

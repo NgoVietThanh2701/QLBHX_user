@@ -2,7 +2,7 @@ import React from 'react'
 import './FlashSale.scss';
 import FlashSaleCard from './FlashSaleCard';
 
-const FlashSale = () => {
+const FlashSale = ({ products }) => {
    return (
       <>
          <section className='flashSale'>
@@ -15,7 +15,7 @@ const FlashSale = () => {
                   <i class="fa-solid fa-arrow-right"></i>
                </div>
             </div>
-            <FlashSaleCard />
+            <FlashSaleCard products={products} />
          </section>
       </>
    )

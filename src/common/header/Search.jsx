@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 const Search = () => {
 
@@ -8,7 +9,7 @@ const Search = () => {
             <div className="container flex_2">
                <div className="logo">
                   <i class="fa-solid fa-bag-shopping"></i>
-                  <span>DeftShop</span>
+                  <Link to='/'><span>DeftShop</span></Link>
                </div>
                <div className="search-box flex_2">
                   <input type='text' placeholder='Search and hit enter...' />

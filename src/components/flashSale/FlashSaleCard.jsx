@@ -3,76 +3,7 @@ import Slider from 'react-slick';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
-const FlashSaleCard = () => {
-
-   const Sdata = [
-      {
-         id: 1,
-         title: "50% Off For Your First Shopping",
-         desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quis lobortis consequat eu, quam etiam at quis ut convallis.",
-         cover: './images/category/category_1.png',
-      },
-      {
-         id: 2,
-         title: "50% Off For Your First Shopping",
-         desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quis lobortis consequat eu, quam etiam at quis ut convallis.",
-         cover: './images/category/category_2.png',
-      },
-      {
-         id: 3,
-         title: "50% Off For Your First Shopping",
-         desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quis lobortis consequat eu, quam etiam at quis ut convallis.",
-         cover: './images/category/category_3.png',
-      },
-      {
-         id: 4,
-         title: "50% Off For Your First Shopping",
-         desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quis lobortis consequat eu, quam etiam at quis ut convallis.",
-         cover: './images/category/category_4.png',
-      },
-      {
-         id: 5,
-         title: "50% Off For Your First Shopping",
-         desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quis lobortis consequat eu, quam etiam at quis ut convallis.",
-         cover: './images/category/category_5.png',
-      },
-      {
-         id: 6,
-         title: "50% Off For Your First Shopping",
-         desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quis lobortis consequat eu, quam etiam at quis ut convallis.",
-         cover: './images/category/category_6.png',
-      },
-      {
-         id: 7,
-         title: "50% Off For Your First Shopping",
-         desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quis lobortis consequat eu, quam etiam at quis ut convallis.",
-         cover: './images/category/category_1.png',
-      },
-      {
-         id: 8,
-         title: "50% Off For Your First Shopping",
-         desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quis lobortis consequat eu, quam etiam at quis ut convallis.",
-         cover: './images/category/category_2.png',
-      },
-      {
-         id: 6,
-         title: "50% Off For Your First Shopping",
-         desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quis lobortis consequat eu, quam etiam at quis ut convallis.",
-         cover: './images/category/category_6.png',
-      },
-      {
-         id: 7,
-         title: "50% Off For Your First Shopping",
-         desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quis lobortis consequat eu, quam etiam at quis ut convallis.",
-         cover: './images/category/category_1.png',
-      },
-      {
-         id: 8,
-         title: "50% Off For Your First Shopping",
-         desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quis lobortis consequat eu, quam etiam at quis ut convallis.",
-         cover: './images/category/category_2.png',
-      }
-   ]
+const FlashSaleCard = ({ products }) => {
 
    const settings = {
       dots: false,
@@ -87,21 +18,24 @@ const FlashSaleCard = () => {
    return (
       <>
          <Slider {...settings}>
-            {Sdata.map((value, index) => {
-               return (
-                  <div className="items" key={index}>
-                     <div className="item">
-                        <div className="image"> <img src={value.cover} alt="" /></div>
-                        <div className="price">đ 500.000 </div>
-                        <div className="quantity-sale">Đã bán chạy</div>
+            {products.map((product, index) => {
+               if (product.discount > 0) {
+                  return (
+                     <div className="items" key={index}>
+                        <div className="item">
+                           <div className="image"> <img src={product.url} alt="" /></div>
+                           <div className="price format-price">{product.price} </div>
+                           <div className="quantity-sale">Đã bán chạy</div>
+                        </div>
+                        <div className="discount">
+                           <div className="dis">{product.discount}%</div>
+                           <div className="text">giảm</div>
+                           <div className="triangle"></div>
+                        </div>
                      </div>
-                     <div className="discount">
-                        <div className="dis">25%</div>
-                        <div className="text">giảm</div>
-                        <div className="triangle"></div>
-                     </div>
-                  </div>
-               )
+                  )
+               }
+               return null;
             })}
          </Slider>
       </>

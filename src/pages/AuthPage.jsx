@@ -1,12 +1,12 @@
 import React from 'react'
 import Auth from '../components/form-auth/Auth'
 
-const LoginPage = () => {
+const AuthPage = ({ auth }) => {
    return (
       <>
-         <Auth />
+         <Auth auth={auth} />
       </>
    )
 }
 
-export default LoginPage
+export default AuthPage

@@ -92,7 +92,12 @@ $dimension_32 : 2.085vw;
             padding-left: $dimension_18;
 
             .name {
-               font-size: $dimension_24;
+               width: $dimension_10*70;
+               display: -webkit-box;
+               -webkit-line-clamp: 2;
+               -webkit-box-orient: vertical;
+               overflow: hidden;
+               font-size: $dimension_22;
                color: rgba(0, 0, 0, 0.8);
                font-weight: 400;
             }

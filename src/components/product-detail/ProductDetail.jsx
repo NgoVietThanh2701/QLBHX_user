@@ -5,11 +5,10 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Rating from '@mui/material/Rating';
 import PaginatedProducts from '../list-products/ListProducts'
-import { Sdata_product } from '../data';
 import CardProduct from '../card-product/CardProduct';
 
 
-const ProductDetail = () => {
+const ProductDetail = ({ product, products }) => {
 
    const attribute = [
       {
@@ -37,7 +36,7 @@ const ProductDetail = () => {
       dots: false,
       infinite: false, // don't click when end list
       slidesToShow: 4,
-      slidesToScroll: 1,
+      slidesToScroll: 3,
       speed: 500,
       nextArrow: <SampleNextArrow />,
       prevArrow: <SamplePrevArrow />,
@@ -53,7 +52,7 @@ const ProductDetail = () => {
       prevArrow: <SamplePrevArrow />,
    }
 
-   const [imageActive, setImageActive] = useState(Sdata_product[0].cover);
+   const [imageActive, setImageActive] = useState(product.url);
    const [quantity, setQuantity] = useState(1);
    const [color, setColor] = useState("");
    const [size, setSize] = useState("");
@@ -63,31 +62,31 @@ const ProductDetail = () => {
          <div className="link">
             <span>DeftShop </span>
             <i class="fa-solid fa-angle-right"></i>
-            <span>Thoi trang nam  </span>
+            <span>{product.category && product.category.name}  </span>
             <i class="fa-solid fa-angle-right"></i>
-            <span>Quan nam </span>
+            <span>{product.sub_category && product.sub_category.name} </span>
             <i class="fa-solid fa-angle-right"></i>
-            <span>Ao Nam chat luong cao phu hop moi do tuoi</span>
+            <span>{product && product.name}</span>
          </div>
          <div className="product">
             <div className="top">
                <div className="left">
                   <div className="image-main">
-                     <img src={imageActive} alt="" />
+                     <img src={imageActive ?? product.url} alt="" />
                   </div>
                   <div className="image-list">
                      <Slider {...settings}>
-                        {Sdata_product.map((value, index) => {
+                        {products && products.map((value, index) => {
                            return <img key={index}
-                              onClick={() => setImageActive(value.cover)}
-                              src={value.cover} alt='' />
+                              onClick={() => setImageActive(value.url)}
+                              src={value.url} alt='' />
                         })}
                      </Slider>
                   </div>
                </div>
                <div className="right">
                   <div className="name">
-                     {Sdata_product[1].title}
+                     {product && product.description}
                   </div>
                   <div className="div-info">
                      <div className="eva-star">
@@ -108,8 +107,8 @@ const ProductDetail = () => {
                      </div>
                   </div>
                   <div className="div-price">
-                     <del>311.000</del>
-                     <div className="price">50.000</div>
+                     <del>   {product && product.price}</del>
+                     <div className="price">{parseInt(product.price) - parseInt(product.price) * parseInt(product.discount) / 100}</div>
                      <div className="discount">40% giảm</div>
                   </div>
                   <div className="div-deal">
@@ -155,10 +154,10 @@ const ProductDetail = () => {
             </div>
             <div className="shop">
                <div className="avatar">
-                  <img src={Sdata_product[0].cover} alt="" />
+                  <img src={product.url} alt="" />
                </div>
                <div className="div-info">
-                  <span className='name-shop'>Ngo viet thanh Shop</span>
+                  <span className='name-shop'>{product.seller && product.seller.nameShop}</span>
                   <span> Online 11 phút trước</span>
                   <div>
                      <span><i class="fa-regular fa-message"></i>Chát ngay</span>
@@ -191,7 +190,7 @@ const ProductDetail = () => {
                   <p className='title uppercase'>Chi tiết sản phẩm</p>
                   <div className="item">
                      <span>Danh mục</span>
-                     <span>Váy Nữ</span>
+                     <span>{product.category && product.category.name} - {product.sub_category && product.sub_category.name}</span>
                   </div>
                   <div className="item">
                      <span>Chất liệu</span>
@@ -217,15 +216,15 @@ const ProductDetail = () => {
          <div className='other-product-title'>CÁC SẢN PHẨM KHÁC CỦA SHOP</div>
          <div className="product-shop">
             <Slider {...settings_2}>
-               {Sdata_product.map((value, index) => {
+               {products && products.map((value, index) => {
                   return (
-                     <CardProduct value={value} index={index} />
+                     <CardProduct product={value} index={index} />
                   )
                })}
             </Slider>
          </div>
          <div className='other-product-title'>CÓ THỂ BẠN CŨNG THÍCH</div>
-         <PaginatedProducts items={Sdata_product} itemsPerPage={12} />
+         <PaginatedProducts items={[...products].reverse()} itemsPerPage={12} />
       </section >
    )
 }

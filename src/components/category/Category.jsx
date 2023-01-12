@@ -2,12 +2,12 @@ import React from 'react'
 import CategoryCard from './CategoryCard'
 import './Category.scss'
 
-const Category = () => {
+const Category = ({ category }) => {
    return (
       <>
          <section className='category'>
             <div className="title">DANH MỤC</div>
-            <CategoryCard />
+            <CategoryCard category={category} />
          </section>
       </>
    )

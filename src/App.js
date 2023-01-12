@@ -13,11 +13,12 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path='/' element={<HomePage />} />
-          <Route path="category-detail" >
+          <Route path="category-detail/:id" >
             <Route index element={<CategoryDetailPage />} />
-            <Route path="products" element={<ProductDetailPage />} />
+            <Route path=":id_product" element={<ProductDetailPage />} />
           </Route>
-          <Route path="login" element={<AuthPage />} />
+          <Route path="login" element={<AuthPage auth={true} />} />
+          <Route path="sign-up" element={<AuthPage auth={false} />} />
         </Routes>
         <Footer />
       </BrowserRouter>

@@ -5,34 +5,35 @@ import { Link } from 'react-router-dom';
 import ReactPaginate from 'react-paginate';
 
 
-const Products = ({ currentItems }) => {
+const Products = ({ products }) => {
    return (
       <>
          <div className="products">
-            {currentItems && currentItems.map((value, index) => {
+            {products && products.map((product, index) => {
                return (
-                  <Link to='products'>
+                  <Link to={product.uuid}>
                      <div className="items" key={index}>
                         <div className="item">
                            <div className="image">
-                              <img src={value.cover} alt="" />
+                              <img src={product.url} alt="" />
                            </div>
-                           <div className='name'>{value.desc}</div>
+                           <div className='name'>{product.description}</div>
                            <div className="sale">Giảm 10đ</div>
                            <div className="list-price">
-                              <span className="price-del"><del>700.000</del></span>
-                              <span className="price">500.000 </span>
+                              <span className="price-del"><del>{product.price}</del></span>
+                              <span className="price">{parseInt(product.price) - parseInt(product.price) * parseInt(product.discount) / 100} </span>
                            </div>
                            <div className="list-price">
                               <Rating className='star' name="half-rating-read" defaultValue={3.5} precision={0.5} readOnly />
                               <span className="count-sell">Đã bán 5.4k</span>
                            </div>
                         </div>
-                        <div className="discount">
-                           <div className="dis">25%</div>
+                        {product.discount > 0 && <div className="discount">
+                           <div className="dis">{product.discount}%</div>
                            <div className="text">giảm</div>
                            <div className="triangle"></div>
                         </div>
+                        }
                      </div>
                   </Link>
                )
@@ -54,7 +55,7 @@ function PaginatedProducts({ items, itemsPerPage }) {
    useEffect(() => {
       // Fetch items from another resources.
       const endOffset = itemOffset + itemsPerPage;
-      console.log(`Loading items from ${itemOffset} to ${endOffset}`);
+      // console.log(`Loading items from ${itemOffset} to ${endOffset}`);
       setCurrentItems(items.slice(itemOffset, endOffset));
       setPageCount(Math.ceil(items.length / itemsPerPage));
    }, [itemOffset, items, itemsPerPage]);
@@ -68,7 +69,7 @@ function PaginatedProducts({ items, itemsPerPage }) {
 
    return (
       <>
-         <Products currentItems={currentItems} />
+         <Products products={currentItems} />
          <ReactPaginate className='paging'
             nextLabel="next >"
             onPageChange={handlePageClick}

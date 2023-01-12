@@ -2,160 +2,13 @@ import React, { useState } from 'react'
 import CardProduct from '../card-product/CardProduct';
 import './Suggest.scss';
 
-const Suggest = () => {
+const Suggest = ({ products }) => {
 
    const [toggleState, setToggleState] = useState(1);
 
    const toggleTab = (index) => {
       setToggleState(index);
    }
-
-   const Sdata = [
-      {
-         id: 1,
-         title: "50% Off For Your First Shopping",
-         desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quis lobortis consequat eu, quam etiam at quis ut convallis.",
-         cover: './images/category/category_1.png',
-      },
-      {
-         id: 2,
-         title: "50% Off For Your First Shopping",
-         desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quis lobortis consequat eu, quam etiam at quis ut convallis.",
-         cover: './images/category/category_2.png',
-      },
-      {
-         id: 3,
-         title: "50% Off For Your First Shopping",
-         desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quis lobortis consequat eu, quam etiam at quis ut convallis.",
-         cover: './images/category/category_3.png',
-      },
-      {
-         id: 4,
-         title: "50% Off For Your First Shopping",
-         desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quis lobortis consequat eu, quam etiam at quis ut convallis.",
-         cover: './images/category/category_4.png',
-      },
-      {
-         id: 5,
-         title: "50% Off For Your First Shopping",
-         desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quis lobortis consequat eu, quam etiam at quis ut convallis.",
-         cover: './images/category/category_5.png',
-      },
-      {
-         id: 6,
-         title: "50% Off For Your First Shopping",
-         desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quis lobortis consequat eu, quam etiam at quis ut convallis.",
-         cover: './images/category/category_6.png',
-      },
-      {
-         id: 7,
-         title: "50% Off For Your First Shopping",
-         desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quis lobortis consequat eu, quam etiam at quis ut convallis.",
-         cover: './images/category/category_1.png',
-      },
-      {
-         id: 8,
-         title: "50% Off For Your First Shopping",
-         desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quis lobortis consequat eu, quam etiam at quis ut convallis.",
-         cover: './images/products/product_1.jpg',
-      },
-      {
-         id: 9,
-         title: "50% Off For Your First Shopping",
-         desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quis lobortis consequat eu, quam etiam at quis ut convallis.",
-         cover: './images/products/product_2.jpg',
-      },
-      {
-         id: 10,
-         title: "50% Off For Your First Shopping",
-         desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quis lobortis consequat eu, quam etiam at quis ut convallis.",
-         cover: './images/category/category_1.png',
-      },
-      {
-         id: 11,
-         title: "50% Off For Your First Shopping",
-         desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quis lobortis consequat eu, quam etiam at quis ut convallis.",
-         cover: './images/category/category_2.png',
-      },
-      {
-         id: 12,
-         title: "50% Off For Your First Shopping",
-         desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quis lobortis consequat eu, quam etiam at quis ut convallis.",
-         cover: './images/category/category_2.png',
-      },
-      {
-         id: 1,
-         title: "50% Off For Your First Shopping",
-         desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quis lobortis consequat eu, quam etiam at quis ut convallis.",
-         cover: './images/category/category_1.png',
-      },
-      {
-         id: 2,
-         title: "50% Off For Your First Shopping",
-         desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quis lobortis consequat eu, quam etiam at quis ut convallis.",
-         cover: './images/category/category_2.png',
-      },
-      {
-         id: 3,
-         title: "50% Off For Your First Shopping",
-         desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quis lobortis consequat eu, quam etiam at quis ut convallis.",
-         cover: './images/category/category_3.png',
-      },
-      {
-         id: 4,
-         title: "50% Off For Your First Shopping",
-         desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quis lobortis consequat eu, quam etiam at quis ut convallis.",
-         cover: './images/category/category_4.png',
-      },
-      {
-         id: 5,
-         title: "50% Off For Your First Shopping",
-         desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quis lobortis consequat eu, quam etiam at quis ut convallis.",
-         cover: './images/category/category_5.png',
-      },
-      {
-         id: 6,
-         title: "50% Off For Your First Shopping",
-         desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quis lobortis consequat eu, quam etiam at quis ut convallis.",
-         cover: './images/category/category_6.png',
-      },
-      {
-         id: 7,
-         title: "50% Off For Your First Shopping",
-         desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quis lobortis consequat eu, quam etiam at quis ut convallis.",
-         cover: './images/category/category_1.png',
-      },
-      {
-         id: 8,
-         title: "50% Off For Your First Shopping",
-         desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quis lobortis consequat eu, quam etiam at quis ut convallis.",
-         cover: './images/category/category_2.png',
-      },
-      {
-         id: 9,
-         title: "50% Off For Your First Shopping",
-         desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quis lobortis consequat eu, quam etiam at quis ut convallis.",
-         cover: './images/category/category_6.png',
-      },
-      {
-         id: 10,
-         title: "50% Off For Your First Shopping",
-         desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quis lobortis consequat eu, quam etiam at quis ut convallis.",
-         cover: './images/category/category_1.png',
-      },
-      {
-         id: 11,
-         title: "50% Off For Your First Shopping",
-         desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quis lobortis consequat eu, quam etiam at quis ut convallis.",
-         cover: './images/category/category_2.png',
-      },
-      {
-         id: 11,
-         title: "50% Off For Your First Shopping",
-         desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quis lobortis consequat eu, quam etiam at quis ut convallis.",
-         cover: './images/category/category_2.png',
-      },
-   ]
 
    // fixed Header
    window.addEventListener("scroll", function () {
@@ -181,33 +34,19 @@ const Suggest = () => {
 
             <div className="content-tabs">
                <div className={toggleState === 1 ? "active-content" : "content"}>
-                  {Sdata.map((value, index) => {
-                     return (
-                        <CardProduct value={value} index={index} />
-                     )
+                  {products && products.map((product, index) => {
+                     if (index < 24) {
+                        return (
+                           <CardProduct product={product} index={index} />
+                        )
+                     }
+                     return null;
                   })}
                </div>
                <div className={toggleState === 2 ? "active-content" : "content"}>
-                  {Sdata.reverse().map((value, index) => {
+                  {products && products.reverse().map((product, index) => {
                      return (
-                        <div className="items" key={index}>
-                           <div className="item">
-                              <div className="image">
-                                 <img src={value.cover} alt="" />
-                              </div>
-                              <div className='name'>{value.desc}</div>
-                              <div className="sale">Giảm 10đ</div>
-                              <div className="sub">
-                                 <span className="price">500.000 </span>
-                                 <span className="quantity-sale">Đã bán 4.5k</span>
-                              </div>
-                           </div>
-                           <div className="discount">
-                              <div className="dis">25%</div>
-                              <div className="text">giảm</div>
-                              <div className="triangle"></div>
-                           </div>
-                        </div>
+                        <CardProduct product={product} index={index} />
                      )
                   })}
                </div>
