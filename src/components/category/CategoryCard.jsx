@@ -24,17 +24,17 @@ const CategoryCard = ({ category }) => {
                if (index % 2 === 0) {
                   return (
                      <div key={index} className='items'>
-                        <Link to={category[index] && `/category-detail/${category[index].uuid}`}>
+                        <Link to={category[index] && `/category-detail/${category[index].codeCategory}`}>
                            <div className="item">
                               <img className='icon-circle' src={value.cover} alt="" />
                               <span>{category[index] && category[index].name}</span>
                            </div>
                         </Link>
                         <hr />
-                        <Link to={category[index] && `/category-detail/${category[index + 1].uuid}`}>
+                        <Link to={category[index+1] && `/category-detail/${category[index + 1].codeCategory}`}>
                            <div className="item">
                               <img className='icon-circle' src={Sdata[index + 1].cover} alt="" />
-                              <span>{category[index] && category[index + 1].name}</span>
+                              <span>{category[index+1] && category[index + 1].name}</span>
                            </div>
                         </Link>
                      </div>

@@ -15,7 +15,7 @@ const MainHome = () => {
                      <img src='../images/banner/banner_1.jpg' alt='' />
                   </div>
                   <div className="right-bottom">
-                     <img src='../images/banner/banner_2.png' alt='' />
+                     <img src='../images/banner/banner_3.jpg' alt='' />
                   </div>
                </div>
             </div>

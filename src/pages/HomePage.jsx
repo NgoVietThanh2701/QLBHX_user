@@ -16,8 +16,8 @@ const Home = () => {
       setCategory(response.data);
    }
 
-   const getProducts = async () => {
-      const response = await axios.get(`http://localhost:5000/products`);
+   const getProducts = async (branch) => {
+      const response = await axios.get(`http://localhost:5000/product/${branch}`);
       setProducts(response.data);
    }
 
@@ -26,9 +26,10 @@ const Home = () => {
       getProducts();
    }, []);
 
+
    return (
       <>
-         <Header header={true} />
+         <Header header={true} getProducts={getProducts}/>
          <MainHome />
          <Category category={category} />
          <FlashSale products={products} />

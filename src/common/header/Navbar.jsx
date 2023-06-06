@@ -1,11 +1,27 @@
 import React from 'react'
-import { Link } from "react-router-dom"
+import { useEffect } from 'react';
+import { useState } from 'react';
+import { Link } from "react-router-dom";
+import axios from 'axios';
 
-const Navbar = () => {
+const Navbar = ({getProducts}) => {
+
+   const [branch, setBranch] = useState(3434)
+
+   useEffect(() => {
+      getProducts(branch);
+   },[branch]);
 
    return (
       <>
          <header className='header'>
+               <select class='container-select' value={branch} onChange={(e) => setBranch(e.target.value)}>
+                     <option className='option' value='3434'>--- Chi nhánh ---</option>
+                     <option className='option' value='3435'>Đà nẵng</option>
+                     <option className='option' value='3436'>Hồ chí Mình</option>
+                     <option className='option' value='3437'>Hà Nội</option>
+               </select>
+          
             <ul className="capitalize">
                <li>
                   <Link to='/'>Váy</Link>

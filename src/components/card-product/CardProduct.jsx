@@ -8,6 +8,7 @@ const CardProduct = ({ product, index }) => {
             <div className="image">
                <img src={product && product.url} alt="" />
             </div>
+            <div className='name'>{product && product.name}</div>
             <div className='name'>{product && product.description}</div>
             <div className="sale">Giảm 10đ</div>
             <div className="sub">

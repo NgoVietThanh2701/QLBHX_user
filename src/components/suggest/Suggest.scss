@@ -24,9 +24,9 @@ $dimension_32 : 2.085vw;
       background-color: white;
 
       button {
-         color: #EE2C14;
+         color: #008848f6;
          font-size: $dimension_16;
-         font-weight: 500;
+         font-weight: 600;
       }
 
       .tabs {
@@ -49,7 +49,7 @@ $dimension_32 : 2.085vw;
          transform: translateX(-50%);
          width: calc(100% + 2px);
          height: $dimension_10*0.4;
-         background: #FE6232;
+         background: #00884885;
       }
 
       box-shadow: 1px 1px 3px 1px rgba(0, 0, 0, 0.1);

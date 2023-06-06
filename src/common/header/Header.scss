@@ -1,3 +1,5 @@
+@import '../../comom.scss';
+
 //------------- head ----------
 $dimension_10 : 0.655vw;
 $dimension_13 : 0.85vw; //1px = 0.065; 2px = 0.13
@@ -11,7 +13,7 @@ $dimension_30 : 1.955vw;
 $dimension_32 : 2.085vw;
 
 .head {
-   background-color: #F6412D;
+   background-color: $background-1;
    padding: $dimension_13*0.4 0;
    color: white;
 
@@ -49,10 +51,10 @@ $dimension_32 : 2.085vw;
 // ----------------- search ---------------------
 .search {
    padding: $dimension_10*0.5 0 $dimension_10*0.3 0;
-   background-image: linear-gradient(#F6412D, #FE6232);
+   background-image: linear-gradient($background-2, $background-3);
 
    .logo {
-      width: 15%;
+      width: 23%;
       display: flex;
       gap: $dimension_10;
       align-items: center;
@@ -70,7 +72,7 @@ $dimension_32 : 2.085vw;
    }
 
    .search-box {
-      width: 70%;
+      width: 62%;
       border: 1px solid white;
       border-radius: 3px;
 
@@ -130,14 +132,24 @@ $dimension_32 : 2.085vw;
 
 // ------------------- navbar-------
 .header {
-   background-color: #FE6232;
+   background-color: $background-1;
    padding-bottom: $dimension_10*0.5;
+   display: flex;
+
+   .container-select {
+      margin-left: 150px;
+      width: 160px;
+      height: 28px;
+      border-radius: 3px;
+      font-size: 16px;
+      padding: 0px 8px;
+      border: 1px solid white;
+   }
 
    ul {
       display: flex;
       gap: $dimension_15;
-      max-width: 56%;
-      margin: auto;
+      margin-left: 130px;
 
       li {
 

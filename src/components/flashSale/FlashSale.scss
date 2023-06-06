@@ -1,3 +1,5 @@
+@import '../../comom.scss';
+
 $dimension_10_negative : -0.655vw;
 $dimension_10 : 0.655vw;
 $dimension_13 : 0.85vw; //1px = 0.065; 2px = 0.13
@@ -24,7 +26,7 @@ $dimension_32 : 2.085vw;
       padding: $dimension_13;
 
       .titleName {
-         color: #FE6232;
+         color: $background-1;
          font-weight: 600;
          margin-left: $dimension_10;
          font-size: $dimension_22;
@@ -32,7 +34,7 @@ $dimension_32 : 2.085vw;
 
       .btn-view {
          font-size: $dimension_15;
-         color: #EE2C14;
+         color:  $background-1;
          cursor: pointer;
 
          i {
@@ -59,7 +61,7 @@ $dimension_32 : 2.085vw;
          padding: 0px 1px 0 1px;
 
          .dis {
-            color: #EE2C14;
+            color: $background-1;
          }
 
          .text {
@@ -92,19 +94,20 @@ $dimension_32 : 2.085vw;
             img {
                width: 100%;
                height: 100%;
-               object-fit: contain;
+               object-fit: cover;
             }
          }
 
 
          .price {
-            color: #EE2C14;
+            color: rgba(0, 0, 0, 0.7);
+            font-weight: 400;
             font-size: $dimension_16;
          }
 
          .quantity-sale {
             border: 1px solid;
-            background-color: #fe6232bd;
+            background-color: $background-1;
             color: white;
             width: 70%;
             font-weight: 400;

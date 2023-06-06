@@ -11,23 +11,23 @@ const SlideCard = () => {
       },
       {
          id: 2,
-         cover: "../images/banner/banner_2.png",
-      },
-      {
-         id: 3,
          cover: "../images/banner/banner_3.jpg",
       },
       {
          id: 3,
-         cover: "../images/banner/banner_4.png",
+         cover: "../images/banner/banner_5.jpg",
       },
       {
-         id: 3,
-         cover: "../images/banner/banner_5.png",
-      },
-      {
-         id: 3,
+         id: 4,
          cover: "../images/banner/banner_6.jpg",
+      },
+      {
+         id: 5,
+         cover: "../images/banner/banner_3.jpg",
+      },
+      {
+         id: 6,
+         cover: "../images/banner/banner_5.jpg",
       },
    ]
    const settings = {

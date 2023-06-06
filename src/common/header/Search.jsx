@@ -9,7 +9,7 @@ const Search = () => {
             <div className="container flex_2">
                <div className="logo">
                   <i class="fa-solid fa-bag-shopping"></i>
-                  <Link to='/'><span>DeftShop</span></Link>
+                  <Link to='/'><span>Bách hóa xanh</span></Link>
                </div>
                <div className="search-box flex_2">
                   <input type='text' placeholder='Search and hit enter...' />
