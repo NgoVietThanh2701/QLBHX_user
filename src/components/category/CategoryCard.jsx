@@ -3,7 +3,6 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { Link } from "react-router-dom"
-import { Sdata } from '../data';
 
 const CategoryCard = ({ category }) => {
 
@@ -20,23 +19,24 @@ const CategoryCard = ({ category }) => {
    return (
       <>
          <Slider {...settings}>
-            {Sdata.map((value, index) => {
+            {category.map((value, index) => {
                if (index % 2 === 0) {
                   return (
                      <div key={index} className='items'>
-                        <Link to={category[index] && `/category-detail/${category[index].codeCategory}`}>
+                        <Link to={category[index] && `/category/${value.codeCategory}`}>
                            <div className="item">
-                              <img className='icon-circle' src={value.cover} alt="" />
-                              <span>{category[index] && category[index].name}</span>
+                              <img className='icon-circle' src={value.url} alt="" />
+                              <span>{category[index] && value.name}</span>
                            </div>
                         </Link>
                         <hr />
-                        <Link to={category[index+1] && `/category-detail/${category[index + 1].codeCategory}`}>
+                        {category[index+1] && <Link to={`/category/${category[index + 1].codeCategory}`}>
                            <div className="item">
-                              <img className='icon-circle' src={Sdata[index + 1].cover} alt="" />
-                              <span>{category[index+1] && category[index + 1].name}</span>
+                              <img className='icon-circle' src={category[index+1].url} alt="" />
+                              <span>{category[index + 1].name}</span>
                            </div>
                         </Link>
+                        }
                      </div>
                   )
                }

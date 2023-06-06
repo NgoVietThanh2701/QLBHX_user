@@ -9,7 +9,7 @@ $dimension_22 : 1.435vw;
 $dimension_24 : 1.565vw;
 $dimension_30 : 1.955vw;
 $dimension_32 : 2.085vw;
-
+@import "../../comom.scss";
 .suggest {
    width: 80%;
    margin: auto;
@@ -49,7 +49,7 @@ $dimension_32 : 2.085vw;
          transform: translateX(-50%);
          width: calc(100% + 2px);
          height: $dimension_10*0.4;
-         background: #00884885;
+         background: $background-1;
       }
 
       box-shadow: 1px 1px 3px 1px rgba(0, 0, 0, 0.1);

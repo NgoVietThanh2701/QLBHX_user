@@ -13,7 +13,7 @@ const Header = ({ header, getProducts }) => {
 
    return (
       <div className={header ? 'topBar' : ''}>
-         <Head />
+         <Head/>
          <Search />
          <Navbar getProducts={getProducts}/>
       </div>

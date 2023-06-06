@@ -11,11 +11,11 @@ const Products = ({ products }) => {
          <div className="products">
             {products && products.map((product, index) => {
                return (
-                  <Link to={product.uuid}>
+                  <Link to={product.codeProduct}>
                      <div className="items" key={index}>
                         <div className="item">
                            <div className="image">
-                              <img src={product.url} alt="" />
+                              <img src={product.PhotoProducts[0].url} alt="" />
                            </div>
                            <div className='name'>{product.description}</div>
                            <div className="sale">Giảm 10đ</div>
@@ -25,7 +25,7 @@ const Products = ({ products }) => {
                            </div>
                            <div className="list-price">
                               <Rating className='star' name="half-rating-read" defaultValue={3.5} precision={0.5} readOnly />
-                              <span className="count-sell">Đã bán 5.4k</span>
+                              <span className="count-sell">Đã bán {product.sold}</span>
                            </div>
                         </div>
                         {product.discount > 0 && <div className="discount">

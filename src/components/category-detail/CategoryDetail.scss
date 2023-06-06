@@ -9,7 +9,7 @@ $dimension_22 : 1.435vw;
 $dimension_24 : 1.565vw;
 $dimension_30 : 1.955vw;
 $dimension_32 : 2.085vw;
-
+@import "../../comom.scss";
 .category-detail {
    max-width: 80%;
    margin: auto;
@@ -51,7 +51,7 @@ $dimension_32 : 2.085vw;
          }
 
          .active-type {
-            color: #EE2C14;
+            color: $color-1;
          }
 
          .sub-category {
@@ -99,7 +99,7 @@ $dimension_32 : 2.085vw;
          }
 
          .active {
-            background-color: #f84913;
+            background-color: $color-1;
             color: white;
          }
 

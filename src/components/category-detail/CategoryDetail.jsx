@@ -6,7 +6,6 @@ const CategoryDetail = ({ type, products }) => {
 
    const [sortOption, setSortOption] = useState(1);
 
-
    const renderSwitchSort = (param) => {
       switch (param) {
          case 1: return products;
@@ -26,7 +25,7 @@ const CategoryDetail = ({ type, products }) => {
             </div>
             <div className="hr"></div>
             <div className="top">
-               <div className="category-name active-type">{type[0] && type[0].category.name}</div>
+               <div className="category-name active-type">{type[0] && type[0].name}</div>
                <div className="sub-category capitalize">
                   {type && type.map((value, index) => {
                      return (
@@ -51,7 +50,8 @@ const CategoryDetail = ({ type, products }) => {
             </div>
             {type.length > 0 ?
                <PaginatedProducts items={renderSwitchSort(sortOption)}
-                  itemsPerPage={products.length % 5 === 0 ? products.length : parseInt(products.length / 5) * 5} />
+                  // itemsPerPage={products.length % 5 === 0 ? products.length : parseInt(products.length / 5) * 5} />
+                    itemsPerPage={products.length}/>
                : <div className='check-null'>Danh mục hiện chưa có sản phẩm!</div>}
          </div>
       </section>

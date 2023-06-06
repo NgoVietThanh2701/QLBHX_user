@@ -7,16 +7,26 @@ import ProductDetail from '../components/product-detail/ProductDetail'
 const ProductDetailPage = () => {
 
    const { id, id_product } = useParams();
-   const [product, setProduct] = useState([]);
+   const [product, setProduct] = useState();
    const [products, setProducts] = useState([]);
 
    const getProduct = useCallback(async () => {
-      const response = await axios.get(`http://localhost:5000/category/${id}/all-products/${id_product}`)
+      const response = await axios.get(`http://localhost:5000/productbyID/${id_product}`);
+      console.log("zzz")
+      console.log(response.data);
       setProduct(response.data);
-   }, [id, id_product])
+   }, [id_product]);
 
-   const getProductByCate = useCallback(async () => {
-      const response = await axios.get(`http://localhost:5000/category/${id}/all-products`);
+   // const getProductByCate = useCallback(async () => {
+   //    const response = await axios.get(`http://localhost:5000/category/${id}/all-products`);
+   //    setProducts(response.data)
+   // }, [id])
+
+   const getProductByCate = useCallback(async (branch) => {
+      if(!branch) {
+         branch = 3434;
+      }
+      const response = await axios.get(`http://localhost:5000/category/${id}/${branch}`);
       setProducts(response.data)
    }, [id])
 
@@ -25,10 +35,9 @@ const ProductDetailPage = () => {
       getProductByCate();
    }, [getProduct, getProductByCate])
 
-
    return (
       <>
-         <Header header={false} />
+         <Header header={false} getProducts = {getProductByCate}/>
          <ProductDetail product={product} products={products} />
       </>
    )

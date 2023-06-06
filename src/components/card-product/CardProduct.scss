@@ -1,3 +1,4 @@
+@import "../../comom.scss";
 $dimension_10 : 0.655vw;
 $dimension_13 : 0.85vw; //1px = 0.065; 2px = 0.13
 $dimension_15 : 0.98vw;
@@ -18,8 +19,7 @@ $dimension_32 : 2.085vw;
    border: 1.5px solid rgba(128, 128, 128, 0.114);
 
    &:hover {
-      border: 1.5px solid rgba(0, 128, 0, 0.888);
-
+      border: 1.5px solid $background-1;
    }
 
    .discount {
@@ -35,7 +35,8 @@ $dimension_32 : 2.085vw;
       padding: 0px 1px 0 1px;
 
       .dis {
-         color: #EE2C14;
+         color: $background-1;
+         font-weight: 500;
       }
 
       .text {
@@ -60,7 +61,7 @@ $dimension_32 : 2.085vw;
       gap: $dimension_10;
 
       .image {
-         width: $dimension_30*6;
+         width: $dimension_20*8;
          height: $dimension_20*8;
 
          img {
@@ -83,7 +84,7 @@ $dimension_32 : 2.085vw;
       }
 
       .sale {
-         background-color: #eba10e;
+         background-color: $color-2;
          padding: $dimension_10*0.3;
          border: 2px dotted white;
          font-size: $dimension_10;
@@ -95,13 +96,14 @@ $dimension_32 : 2.085vw;
       .sub {
          display: flex;
          justify-content: space-between;
-         gap: $dimension_10*5;
-         margin: 0 $dimension_10*0.3 0;
+         width: 100%;
+         // margin: 0 $dimension_10 0;
+         padding: 0 6px;
          align-items: center;
 
          .price {
             font-size: $dimension_15;
-            color: #EE2C14;
+            color: $color-1;
          }
 
          .quantity-sale {

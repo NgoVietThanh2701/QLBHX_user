@@ -12,12 +12,15 @@ const CategoryDetailPage = () => {
    const [products, setProducts] = useState([]);
 
    const getType = useCallback(async () => {
-      const response = await axios.get(`http://localhost:5000/category/${id}`);
+      const response = await axios.get(`http://localhost:5000/type`);
       setType(response.data);
-   }, [id])
+   }, [])
 
-   const getProductByCate = useCallback(async () => {
-      const response = await axios.get(`http://localhost:5000/category/${id}/all-products`);
+   const getProductByCate = useCallback(async (branch) => {
+      if(!branch) {
+         branch = 3434;
+      }
+      const response = await axios.get(`http://localhost:5000/category/${id}/${branch}`);
       setProducts(response.data)
    }, [id])
 
@@ -29,7 +32,7 @@ const CategoryDetailPage = () => {
 
    return (
       <>
-         <Header header={true} />
+         <Header header={true} getProducts = {getProductByCate}/>
          <MainHome />
          <CategoryDetail type={type} products={products} />
       </>

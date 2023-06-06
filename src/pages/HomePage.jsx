@@ -17,6 +17,9 @@ const Home = () => {
    }
 
    const getProducts = async (branch) => {
+      if(!branch) {
+         branch = 3434;
+      }
       const response = await axios.get(`http://localhost:5000/product/${branch}`);
       setProducts(response.data);
    }

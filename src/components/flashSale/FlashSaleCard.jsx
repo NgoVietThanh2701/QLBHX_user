@@ -23,7 +23,7 @@ const FlashSaleCard = ({ products }) => {
                   return (
                      <div className="items" key={index}>
                         <div className="item">
-                           <div className="image"> <img src={product.url} alt="" /></div>
+                           <div className="image"> <img src={product.PhotoProducts[0].url} alt="" /></div>
                            <div className="price format-price">{product.price} </div>
                            <div className="quantity-sale">Đã bán chạy</div>
                         </div>

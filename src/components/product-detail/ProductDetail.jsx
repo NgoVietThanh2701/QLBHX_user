@@ -52,7 +52,7 @@ const ProductDetail = ({ product, products }) => {
       prevArrow: <SamplePrevArrow />,
    }
 
-   const [imageActive, setImageActive] = useState(product.url);
+   const [imageActive, setImageActive] = useState(product && product.PhotoProducts[0].url);
    const [quantity, setQuantity] = useState(1);
    const [color, setColor] = useState("");
    const [size, setSize] = useState("");
@@ -62,9 +62,9 @@ const ProductDetail = ({ product, products }) => {
          <div className="link">
             <span>DeftShop </span>
             <i class="fa-solid fa-angle-right"></i>
-            <span>{product.category && product.category.name}  </span>
+            {/* <span>{product.Type && product.Type.name}  </span> */}
             <i class="fa-solid fa-angle-right"></i>
-            <span>{product.sub_category && product.sub_category.name} </span>
+            {/* <span>{product.sub_category && product.sub_category.name} </span> */}
             <i class="fa-solid fa-angle-right"></i>
             <span>{product && product.name}</span>
          </div>
@@ -72,7 +72,7 @@ const ProductDetail = ({ product, products }) => {
             <div className="top">
                <div className="left">
                   <div className="image-main">
-                     <img src={imageActive ?? product.url} alt="" />
+                     {/* <img src={imageActive ?? product.PhotoProducts[0].url} alt="" /> */}
                   </div>
                   <div className="image-list">
                      <Slider {...settings}>
