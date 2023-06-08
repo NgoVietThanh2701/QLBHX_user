@@ -8,7 +8,9 @@ const Header = ({ header, getProducts }) => {
    // fixed Header
    window.addEventListener("scroll", function () {
       const topBar = document.querySelector(".topBar")
-      topBar.classList.toggle("active", window.scrollY > 100)
+      if(topBar) {
+       topBar.classList.toggle("active", window.scrollY > 100)
+      }
    });
 
    return (

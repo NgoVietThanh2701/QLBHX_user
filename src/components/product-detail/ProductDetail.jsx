@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import './ProductDetail.scss'
 import Slider from 'react-slick';
 import "slick-carousel/slick/slick.css";
@@ -52,7 +52,11 @@ const ProductDetail = ({ product, products }) => {
       prevArrow: <SamplePrevArrow />,
    }
 
-   const [imageActive, setImageActive] = useState(product && product.PhotoProducts[0].url);
+   useEffect(() => {
+      setImageActive(product && product.PhotoProducts[0].url);
+   },[product])
+
+   const [imageActive, setImageActive] = useState("");
    const [quantity, setQuantity] = useState(1);
    const [color, setColor] = useState("");
    const [size, setSize] = useState("");
@@ -62,9 +66,7 @@ const ProductDetail = ({ product, products }) => {
          <div className="link">
             <span>DeftShop </span>
             <i class="fa-solid fa-angle-right"></i>
-            {/* <span>{product.Type && product.Type.name}  </span> */}
-            <i class="fa-solid fa-angle-right"></i>
-            {/* <span>{product.sub_category && product.sub_category.name} </span> */}
+            <span>{product && product.Type.name} </span>
             <i class="fa-solid fa-angle-right"></i>
             <span>{product && product.name}</span>
          </div>
@@ -72,14 +74,14 @@ const ProductDetail = ({ product, products }) => {
             <div className="top">
                <div className="left">
                   <div className="image-main">
-                     {/* <img src={imageActive ?? product.PhotoProducts[0].url} alt="" /> */}
+                     <img src={imageActive} alt="" />
                   </div>
                   <div className="image-list">
                      <Slider {...settings}>
-                        {products && products.map((value, index) => {
+                        {product && product.PhotoProducts.map((photo, index) => {
                            return <img key={index}
-                              onClick={() => setImageActive(value.url)}
-                              src={value.url} alt='' />
+                              onClick={() => setImageActive(photo.url)}
+                              src={photo.url} alt='' />
                         })}
                      </Slider>
                   </div>
@@ -101,15 +103,15 @@ const ProductDetail = ({ product, products }) => {
                      </div>
                      <div className="div-hr"></div>
                      <div className="div-sold">
-                        <span>500 </span>
+                        <span>{product && product.sold} </span>
                         <span>đã bán</span>
                         <div>?</div>
                      </div>
                   </div>
                   <div className="div-price">
                      <del>   {product && product.price}</del>
-                     <div className="price">{parseInt(product.price) - parseInt(product.price) * parseInt(product.discount) / 100}</div>
-                     <div className="discount">40% giảm</div>
+                     <div className="price">{parseInt(product ? product.price: 0) - parseInt(product ? product.price: 0) * parseInt(product ? product.discount:0) / 100}</div>
+                     <div className="discount">{product && product.discount}% giảm</div>
                   </div>
                   <div className="div-deal">
                      <span>Deal sốc</span>
@@ -140,7 +142,7 @@ const ProductDetail = ({ product, products }) => {
                         <span>{quantity}</span>
                         <span onClick={() => setQuantity(quantity + 1)}>+</span>
                      </div>
-                     <span className="lb-qt">1230 sản phẩm có sẵn</span>
+                     <span className="lb-qt">{product && product.stock} sản phẩm có sẵn</span>
                   </div>
                   <div className="div-action">
                      <button>Thêm vào giỏ hàng</button>
@@ -154,10 +156,10 @@ const ProductDetail = ({ product, products }) => {
             </div>
             <div className="shop">
                <div className="avatar">
-                  <img src={product.url} alt="" />
+                  <img src="/images/logo.jpg" alt="" />
                </div>
                <div className="div-info">
-                  <span className='name-shop'>{product.seller && product.seller.nameShop}</span>
+                  <span className='name-shop'>Bách hóa xanh</span>
                   <span> Online 11 phút trước</span>
                   <div>
                      <span><i class="fa-regular fa-message"></i>Chát ngay</span>
@@ -190,7 +192,7 @@ const ProductDetail = ({ product, products }) => {
                   <p className='title uppercase'>Chi tiết sản phẩm</p>
                   <div className="item">
                      <span>Danh mục</span>
-                     <span>{product.category && product.category.name} - {product.sub_category && product.sub_category.name}</span>
+                     <span>{product && product.Type.name}</span>
                   </div>
                   <div className="item">
                      <span>Chất liệu</span>

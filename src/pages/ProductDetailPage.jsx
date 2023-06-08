@@ -12,15 +12,8 @@ const ProductDetailPage = () => {
 
    const getProduct = useCallback(async () => {
       const response = await axios.get(`http://localhost:5000/productbyID/${id_product}`);
-      console.log("zzz")
-      console.log(response.data);
       setProduct(response.data);
    }, [id_product]);
-
-   // const getProductByCate = useCallback(async () => {
-   //    const response = await axios.get(`http://localhost:5000/category/${id}/all-products`);
-   //    setProducts(response.data)
-   // }, [id])
 
    const getProductByCate = useCallback(async (branch) => {
       if(!branch) {

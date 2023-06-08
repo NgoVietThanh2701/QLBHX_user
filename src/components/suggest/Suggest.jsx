@@ -13,7 +13,7 @@ const Suggest = ({ products }) => {
    // fixed Header
    window.addEventListener("scroll", function () {
       const topBar = document.querySelector(".bloc-tabs")
-      topBar.classList.toggle("scroll-suggest", window.scrollY > 945)
+      if(topBar) {topBar.classList.toggle("scroll-suggest", window.scrollY > 945)}
    });
 
    return (

@@ -2,15 +2,13 @@ import React from 'react'
 import { useEffect } from 'react';
 import { useState } from 'react';
 import { Link } from "react-router-dom";
-import axios from 'axios';
-
 const Navbar = ({getProducts}) => {
 
    const [branch, setBranch] = useState(3434)
 
    useEffect(() => {
       getProducts(branch);
-   },[branch]);
+   });
 
    return (
       <>
