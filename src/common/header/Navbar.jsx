@@ -8,12 +8,12 @@ const Navbar = ({getProducts}) => {
 
    useEffect(() => {
       getProducts(branch);
-   });
+   }, [getProducts, branch]);
 
    return (
       <>
          <header className='header'>
-               <select class='container-select' value={branch} onChange={(e) => setBranch(e.target.value)}>
+               <select className='container-select' value={branch} onChange={(e) => setBranch(e.target.value)}>
                      <option className='option' value='3434'>--- Chi nhánh ---</option>
                      <option className='option' value='3435'>Đà nẵng</option>
                      <option className='option' value='3436'>Hồ chí Mình</option>

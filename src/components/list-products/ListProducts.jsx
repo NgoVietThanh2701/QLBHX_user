@@ -11,8 +11,8 @@ const Products = ({ products }) => {
          <div className="products">
             {products && products.map((product, index) => {
                return (
-                  <Link to={product.codeProduct}>
-                     <div className="items" key={index}>
+                  <Link to={product.codeProduct} key={index}>
+                     <div className="items">
                         <div className="item">
                            <div className="image">
                               <img src={product.PhotoProducts[0].url} alt="" />

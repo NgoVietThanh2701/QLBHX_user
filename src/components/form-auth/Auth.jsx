@@ -9,8 +9,9 @@ const Auth = ({ auth }) => {
             <div className="title-auth">
                <Link to='/'>
                   <div>
-                     <i class="fa-solid fa-bag-shopping"></i>
-                     <span>DeftShop</span>
+                     {/* <i className="fa-solid fa-bag-shopping"></i> */}
+                     <img src="./images/logo.jpg" alt="" />
+                     <span>Bách hóa xanh</span>
                      <span>{auth ? 'Đăng nhập' : 'Đăng ký'}</span>
                   </div>
                </Link>
@@ -18,7 +19,7 @@ const Auth = ({ auth }) => {
             </div>
             <div className="body">
                <div className="left">
-                  <img src='./images/background.jpg' alt='' />
+                  <img src='./images/bach-hoa-xanh.jpg' alt='' />
                </div>
                <div className="right">
                   {auth ?

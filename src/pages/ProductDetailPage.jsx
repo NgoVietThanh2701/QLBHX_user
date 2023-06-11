@@ -16,17 +16,17 @@ const ProductDetailPage = () => {
    }, [id_product]);
 
    const getProductByCate = useCallback(async (branch) => {
-      if(!branch) {
-         branch = 3434;
-      }
+      // if(!branch) {
+      //    branch = 3434;
+      // }
       const response = await axios.get(`http://localhost:5000/category/${id}/${branch}`);
       setProducts(response.data)
    }, [id])
 
    useEffect(() => {
       getProduct();
-      getProductByCate();
-   }, [getProduct, getProductByCate])
+      // getProductByCate();
+   },[getProduct])
 
    return (
       <>

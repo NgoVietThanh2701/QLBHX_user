@@ -12,7 +12,7 @@ const FlashSale = ({ products }) => {
                </div>
                <div className="btn-view">
                   Xem tất cả
-                  <i class="fa-solid fa-arrow-right"></i>
+                  <i className="fa-solid fa-arrow-right"></i>
                </div>
             </div>
             <FlashSaleCard products={products} />

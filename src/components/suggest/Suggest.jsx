@@ -37,7 +37,7 @@ const Suggest = ({ products }) => {
                   {products && products.map((product, index) => {
                      if (index < 24) {
                         return (
-                           <CardProduct product={product} index={index} />
+                           <CardProduct key={index} product={product} index={index} />
                         )
                      }
                      return null;
@@ -46,7 +46,7 @@ const Suggest = ({ products }) => {
                <div className={toggleState === 2 ? "active-content" : "content"}>
                   {products && products.reverse().map((product, index) => {
                      return (
-                        <CardProduct product={product} index={index} />
+                        <CardProduct key={index} product={product} index={index} />
                      )
                   })}
                </div>

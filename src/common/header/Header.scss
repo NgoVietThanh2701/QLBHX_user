@@ -59,9 +59,9 @@ $dimension_32 : 2.085vw;
       gap: $dimension_10;
       align-items: center;
 
-      i {
-         font-size: $dimension_30;
-         color: white;
+      img {
+         width: 32px;
+         border-radius: 50%;
       }
 
       span {
@@ -132,17 +132,18 @@ $dimension_32 : 2.085vw;
 
 // ------------------- navbar-------
 .header {
-   background-color: $background-1;
+   background-color: $background-3;
    padding-bottom: $dimension_10*0.5;
    display: flex;
 
    .container-select {
+      appearance: none;
       margin-left: 150px;
-      width: 160px;
-      height: 28px;
+      width: 140px;
+      height: 26px;
       border-radius: 3px;
-      font-size: 16px;
-      padding: 0px 8px;
+      font-size: 15px;
+      padding: 0 4px 0 16px;
       border: 1px solid white;
    }
 

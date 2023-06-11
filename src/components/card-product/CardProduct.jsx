@@ -3,7 +3,7 @@ import './CardProduct.scss';
 
 const CardProduct = ({ product, index }) => {
    return (
-      <div class="card-products" key={index}>
+      <div className="card-products" key={index}>
          <div className="card">
             <div className="image">
                <img src={product && product.PhotoProducts[0].url} alt="" />

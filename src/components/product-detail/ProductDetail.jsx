@@ -10,27 +10,16 @@ import CardProduct from '../card-product/CardProduct';
 
 const ProductDetail = ({ product, products }) => {
 
-   const attribute = [
-      {
-         id: 1,
-         name: "Mau sac",
-         option: [
-            'Trang',
-            'đỏ',
-            'Xanh'
-         ]
-      },
-      {
-         id: 2,
-         name: "Kích cỡ",
-         option: [
-            'Size L',
-            'Size M',
-            'Size XL',
-            'Size XXL'
-         ]
-      }
-   ]
+   var stringPro = product ? product.properties : "";
+   const attribute = [];
+   if(stringPro && stringPro.trim().length > 0) {
+      let objArray = JSON.parse(JSON.parse(stringPro)); 
+      objArray.forEach(obj => {
+         Object.entries(obj).forEach(([key, value], index) => {
+            attribute.push({id: index, name: key, option: value});
+         });
+      })
+   }
 
    const settings = {
       dots: false,
@@ -58,16 +47,21 @@ const ProductDetail = ({ product, products }) => {
 
    const [imageActive, setImageActive] = useState("");
    const [quantity, setQuantity] = useState(1);
-   const [color, setColor] = useState("");
-   const [size, setSize] = useState("");
+   const [options, setOptions] = useState([]); // Mảng lưu trữ các options được chọn, với mỗi phần tử trong mảng tương ứng với một thuộc tính
+   const handleOptionSelected = (attrIndex, optionIndex) => {
+      const newOptions = [...options]; // Sao chép mảng options để tránh thay đổi giá trị state trực tiếp
+      // Lưu trữ chỉ số của option 
+      newOptions[attrIndex] = optionIndex;
+      setOptions(newOptions); // Cập nhật state với mảng options mới
+   };
 
    return (
       <section className='product-detail'>
          <div className="link">
             <span>DeftShop </span>
-            <i class="fa-solid fa-angle-right"></i>
+            <i className="fa-solid fa-angle-right"></i>
             <span>{product && product.Type.name} </span>
-            <i class="fa-solid fa-angle-right"></i>
+            <i className="fa-solid fa-angle-right"></i>
             <span>{product && product.name}</span>
          </div>
          <div className="product">
@@ -88,7 +82,7 @@ const ProductDetail = ({ product, products }) => {
                </div>
                <div className="right">
                   <div className="name">
-                     {product && product.description}
+                     {product && product.name}
                   </div>
                   <div className="div-info">
                      <div className="eva-star">
@@ -116,17 +110,17 @@ const ProductDetail = ({ product, products }) => {
                   <div className="div-deal">
                      <span>Deal sốc</span>
                      <span>Mua kèm Deal sốc</span>
-                  </div>
+                  </div>      
                   {attribute.map((value, index) => {
+                     const selectedOptions = options[index]; // Mảng các options đã chọn cho thuộc tính hiện tại
                      return (
                         <div className="div-attribute" key={index}>
-                           <div>{value.name}</div>
+                           <div> {value.name.charAt(0).toUpperCase() + value.name.slice(1)}</div>
                            <div>
                               {value.option.map((op, id) => {
+                                 const isSelected = selectedOptions === id;; // Kiểm tra xem option hiện tại có được chọn hay không
                                  return (
-                                    <span className={index === 0 ? (color === id ? 'selected' : '') : (size === id ? 'selected' : '')}
-                                       onClick={() => index === 0 ? setColor(id) : setSize(id)}
-                                       key={id}>
+                                    <span key={id} className={isSelected  ? 'selected' : ''} onClick={() => handleOptionSelected(index, id)}>
                                        {op}
                                     </span>
                                  )
@@ -162,8 +156,8 @@ const ProductDetail = ({ product, products }) => {
                   <span className='name-shop'>Bách hóa xanh</span>
                   <span> Online 11 phút trước</span>
                   <div>
-                     <span><i class="fa-regular fa-message"></i>Chát ngay</span>
-                     <span><i class="fa-regular fa-square-minus"></i>Xem Shop</span>
+                     <span><i className="fa-regular fa-message"></i>Chát ngay</span>
+                     <span><i className="fa-regular fa-square-minus"></i>Xem Shop</span>
                   </div>
                </div>
                <div className="div-sub">
@@ -220,7 +214,7 @@ const ProductDetail = ({ product, products }) => {
             <Slider {...settings_2}>
                {products && products.map((value, index) => {
                   return (
-                     <CardProduct product={value} index={index} />
+                     <CardProduct key={index} product={value} index={index} />
                   )
                })}
             </Slider>

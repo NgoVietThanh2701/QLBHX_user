@@ -8,7 +8,7 @@ const Search = () => {
          <section className='search'>
             <div className="container flex_2">
                <div className="logo">
-                  <i class="fa-solid fa-bag-shopping"></i>
+                  <img src="/images/logo.jpg" alt="" />
                   <Link to='/'><span>Bách hóa xanh</span></Link>
                </div>
                <div className="search-box flex_2">
@@ -17,11 +17,11 @@ const Search = () => {
                </div>
                <div className='items' style={{ display: 'flex', justifyContent: 'end' }}>
                   <div className="item">
-                     <i class="fa-solid fa-cart-shopping"></i>
+                     <i className="fa-solid fa-cart-shopping"></i>
                      <span>0</span>
                   </div>
                   <div className='item'>
-                     <i class="fa-sharp fa-solid fa-bell"></i>
+                     <i className="fa-sharp fa-solid fa-bell"></i>
                      <span>0</span>
                   </div>
                </div>

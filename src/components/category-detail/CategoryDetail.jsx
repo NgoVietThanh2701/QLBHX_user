@@ -20,7 +20,7 @@ const CategoryDetail = ({ type, products }) => {
       <section className='category-detail'>
          <div className="left">
             <div className="title">
-               <i class="fa-solid fa-list"></i>
+               <i className="fa-solid fa-list"></i>
                <span>Danh mục</span>
             </div>
             <div className="hr"></div>

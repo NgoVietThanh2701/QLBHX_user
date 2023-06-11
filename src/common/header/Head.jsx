@@ -20,7 +20,7 @@ const Head = () => {
                   </Link>
                </div>
                <div className='head-item'>
-                  <i class="fa-solid fa-question"></i>
+                  <i className="fa-solid fa-question"></i>
                   <Link>
                      <label>Hổ trợ</label>
                   </Link>

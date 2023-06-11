@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useCallback } from 'react'
 import Header from '../common/header/Header'
 import Category from '../components/category/Category'
 import FlashSale from '../components/flashSale/FlashSale'
@@ -16,17 +16,16 @@ const Home = () => {
       setCategory(response.data);
    }
 
-   const getProducts = async (branch) => {
-      if(!branch) {
-         branch = 3434;
-      }
+   const getProducts = useCallback(async (branch) => {
+      // if(!branch) {
+      //    branch = 3434;
+      // }
       const response = await axios.get(`http://localhost:5000/product/${branch}`);
       setProducts(response.data);
-   }
+   }, []);
 
    useEffect(() => {
       getCategory();
-      getProducts();
    }, []);
 
 
