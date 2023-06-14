@@ -6,9 +6,15 @@ import "slick-carousel/slick/slick-theme.css";
 import Rating from '@mui/material/Rating';
 import PaginatedProducts from '../list-products/ListProducts'
 import CardProduct from '../card-product/CardProduct';
-
+import { useDispatch, useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import { createCart } from '../../features/cartSlice';
 
 const ProductDetail = ({ product, products }) => {
+
+   const {user} = useSelector((status) => status.auth);
 
    var stringPro = product ? product.properties : "";
    const attribute = [];
@@ -54,6 +60,37 @@ const ProductDetail = ({ product, products }) => {
       newOptions[attrIndex] = optionIndex;
       setOptions(newOptions); // Cập nhật state với mảng options mới
    };
+
+   const [classify, setClassify] = useState("");
+
+   useEffect(() => {
+      if(options.length === attribute.length) {
+         let temp = "";
+         attribute.forEach((obj, index) => {
+            temp += obj.name+": ";
+            obj.option.forEach((val, id) => {
+               if(id === options[index]) {
+                  temp += val+", "
+               }
+            })
+         });
+         setClassify(temp)
+      }
+   }, [options]);
+   // push cart
+   const dispatch = useDispatch();
+
+   const {isLoading} = useSelector(
+      (state) => state.cart
+   );
+
+   const addCart = () => {
+      let codeProduct = product.codeProduct;
+      dispatch(createCart({codeProduct, quantity, classify}));
+      setOptions([]);
+      setQuantity(1);
+      toast.success("Đã thêm vào giỏ hàng", {position: toast.POSITION.BOTTOM_RIGHT})
+   }
 
    return (
       <section className='product-detail'>
@@ -139,7 +176,7 @@ const ProductDetail = ({ product, products }) => {
                      <span className="lb-qt">{product && product.stock} sản phẩm có sẵn</span>
                   </div>
                   <div className="div-action">
-                     <button>Thêm vào giỏ hàng</button>
+                     {user ? <button onClick={addCart}>{isLoading ? " Loading..." : "Thêm vào giỏ hàng"}</button> : <Link to="/login" ><button>Thêm vào giỏ hàng</button></Link>}
                      <button>Mua ngay</button>
                   </div>
                   <div className="commit-shop">
@@ -221,6 +258,7 @@ const ProductDetail = ({ product, products }) => {
          </div>
          <div className='other-product-title'>CÓ THỂ BẠN CŨNG THÍCH</div>
          <PaginatedProducts items={[...products].reverse()} itemsPerPage={12} />
+         <ToastContainer/>
       </section >
    )
 }

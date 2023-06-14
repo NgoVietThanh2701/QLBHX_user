@@ -2,19 +2,20 @@ import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 
 const initialState = {
-    user: null,
+    carts: [],
     isError: false,
     isSuccess: false,
     isLoading: false,
     message: ""
 }
 
-export const loginUser = createAsyncThunk("user/loginUser", async(user, thunkAPI) => {
+export const createCart = createAsyncThunk("user/cart", async(cart, thunkAPI) => {
     try {
-        const response = await axios.post('http://localhost:5000/login', {
-            email: user.email,
-            password: user.password
-        });
+        const response = await axios.post("http://localhost:5000/cart", {
+            codeProduct: cart.codeProduct,
+            quantity: cart.quantity,
+            classify: cart.classify
+         });
         return response.data;
     } catch(error) {
         if(error.response) {
@@ -24,9 +25,9 @@ export const loginUser = createAsyncThunk("user/loginUser", async(user, thunkAPI
     }
 });
 
-export const getMeUser = createAsyncThunk("user/getMeUser", async (_, thunkAPI) => {
+export const getCart = createAsyncThunk("user/getCart", async (_, thunkAPI) => {
     try {
-        const response = await axios.get("http://localhost:5000/me");
+        const response = await axios.get("http://localhost:5000/cart");
         return response.data;
     } catch(error) {
         if(error.response) {
@@ -36,41 +37,37 @@ export const getMeUser = createAsyncThunk("user/getMeUser", async (_, thunkAPI) 
     }
 });
 
-export const logOutUser = createAsyncThunk("user/logout", async () => {
-    await axios.delete('http://localhost:5000/logout');
-});
-
-export const authSlice = createSlice({
-    name: 'auth',
+export const cartSlice = createSlice({
+    name: 'cart',
     initialState,
     reducers: {
-        reset: (state) => initialState
+        resetCart: (state) => initialState
     },
     extraReducers: (builder) => {
-        //auth login
-        builder.addCase(loginUser.pending, (state) => {
+        //post cart
+        builder.addCase(createCart.pending, (state) => {
             state.isLoading = true;
         });
-        builder.addCase(loginUser.fulfilled, (state, action) => {
+        builder.addCase(createCart.fulfilled, (state, action) => {
             state.isLoading = false;
             state.isSuccess = true;
-            state.user = action.payload
+            state.carts = action.payload;
         });
-        builder.addCase(loginUser.rejected, (state, action) => {
+        builder.addCase(createCart.rejected, (state, action) => {
             state.isLoading = false;
             state.isError = true;
             state.message = action.payload;
         });
-        // get me
-        builder.addCase(getMeUser.pending, (state) => {
+        // get cart
+        builder.addCase(getCart.pending, (state) => {
             state.isLoading = true;
         });
-        builder.addCase(getMeUser.fulfilled, (state, action) => {
+        builder.addCase(getCart.fulfilled, (state, action) => {
             state.isLoading = false;
             state.isSuccess = true;
-            state.user = action.payload;
+            state.carts = action.payload;
         });
-        builder.addCase(getMeUser.rejected, (state, action) => {
+        builder.addCase(getCart.rejected, (state, action) => {
             state.isLoading = false;
             state.isError = true;
             state.message = action.payload;
@@ -78,5 +75,5 @@ export const authSlice = createSlice({
     }
 });
 
-export const {reset} = authSlice.actions;
-export default authSlice.reducer;
+export const {resetCart} = cartSlice.actions;
+export default cartSlice.reducer;

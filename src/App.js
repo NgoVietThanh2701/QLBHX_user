@@ -6,6 +6,7 @@ import Footer from "./common/footer/Footer";
 import CategoryDetailPage from "./pages/CategoryDetailPage";
 import ProductDetailPage from "./pages/ProductDetailPage";
 import AuthPage from "./pages/AuthPage";
+import { CartPage } from "./pages/CartPage";
 
 function App() {
   return (
@@ -19,8 +20,9 @@ function App() {
           </Route>
           <Route path="login" element={<AuthPage auth={true} />} />
           <Route path="sign-up" element={<AuthPage auth={false} />} />
+          <Route path="cart" element={<CartPage/>}/>
         </Routes>
-        <Footer />
+        <Footer/>
       </BrowserRouter>
     </>
   );

@@ -1,13 +1,39 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
-import './Auth.scss'
+import React, { useState } from 'react'
+import { Link, useNavigate } from 'react-router-dom'
+import './Auth.scss';
+import { useDispatch, useSelector } from 'react-redux';
+import { loginUser, reset } from '../../features/authSlice';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import { useEffect } from 'react';
 
 const Auth = ({ auth }) => {
+
+   const [email, setEmail] = useState("");
+   const [password, setPassword] = useState("");
+   const dispatch = useDispatch();
+   const navigate = useNavigate();
+   const {user, isSuccess, isLoading} = useSelector(
+      (state) => state.auth
+   );
+
+   useEffect(() => {
+      if(user || isSuccess) {
+         navigate("/");
+      }
+      dispatch(reset());
+   }, [user, isSuccess, dispatch, navigate]);
+
+   const login = (e) => {
+      e.preventDefault();
+      dispatch(loginUser({email, password}));
+   } 
+
    return (
       <>
          <section className="auth">
             <div className="title-auth">
-               <Link to='/'>
+               <Link to="/">
                   <div>
                      {/* <i className="fa-solid fa-bag-shopping"></i> */}
                      <img src="./images/logo.jpg" alt="" />
@@ -23,11 +49,12 @@ const Auth = ({ auth }) => {
                </div>
                <div className="right">
                   {auth ?
-                     <form>
+                     <form onSubmit={login}>
                         <div className='title'>{auth ? 'Đăng nhập' : 'Đăng ký'}</div>
-                        <input type="text" placeholder="Email" />
-                        <input type="text" placeholder="Mật khẩu" />
-                        <input type="submit" value='Đăng nhập' />
+                        <input type="text" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)}/>
+                        <input type="password" placeholder="Mật khẩu" value={password} onChange={(e) => setPassword(e.target.value)} />
+                        {/* {isError && toast.error(message, {position: toast.POSITION.BOTTOM_RIGHT})} */}
+                        {isLoading ? "Loading..." : <input type="submit" value='Đăng nhập' />}
                         <div className='forgot'>
                            <span>Quên mật khẩu</span>
                            <span>Đăng nhập với SMS</span>
@@ -46,10 +73,10 @@ const Auth = ({ auth }) => {
                         <div className='title'>Đăng Ký</div>
                         <input type="text" placeholder="Email" />
                         <input type="text" placeholder="Tên" />
-                        <input type="text" placeholder="Mật khẩu" />
-                        <input type="text" placeholder="Nhập lại Mật khẩu" />
+                        <input type="password" placeholder="Mật khẩu" />
+                        <input type="password" placeholder="Nhập lại Mật khẩu" />
                         <input type="submit" value='Đăng Ký' />
-                        <div class="strike">
+                        <div className="strike">
                            <span>HOẶC</span>
                         </div>
                         <div className='advise'>
@@ -63,6 +90,7 @@ const Auth = ({ auth }) => {
                </div>
             </div>
          </section>
+         <ToastContainer/>
       </>
    )
 }

@@ -4,8 +4,19 @@ import CategoryDetail from '../components/category-detail/CategoryDetail'
 import MainHome from '../components/mainHome/MainHome'
 import { useParams } from 'react-router-dom'
 import axios from 'axios'
+import { useDispatch } from 'react-redux'
+import { getMeUser } from '../features/authSlice'
 
 const CategoryDetailPage = () => {
+
+   const dispatch = useDispatch();
+   const checkUserLoggedIn = useCallback (() => (dispatch) => {
+      dispatch(getMeUser());
+   }, [])
+
+   useEffect(() => {
+      dispatch(checkUserLoggedIn());
+   }, [checkUserLoggedIn, dispatch]);
 
    const { id } = useParams();
    const [type, setType] = useState([]);

@@ -3,8 +3,19 @@ import React, { useCallback, useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import Header from '../common/header/Header'
 import ProductDetail from '../components/product-detail/ProductDetail'
+import { useDispatch } from 'react-redux'
+import { getMeUser } from '../features/authSlice'
 
 const ProductDetailPage = () => {
+
+   const dispatch = useDispatch();
+   const checkUserLoggedIn = useCallback (() => (dispatch) => {
+      dispatch(getMeUser());
+   }, [])
+
+   useEffect(() => {
+      dispatch(checkUserLoggedIn());
+   }, [checkUserLoggedIn, dispatch]);
 
    const { id, id_product } = useParams();
    const [product, setProduct] = useState();

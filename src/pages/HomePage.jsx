@@ -5,11 +5,23 @@ import FlashSale from '../components/flashSale/FlashSale'
 import MainHome from '../components/mainHome/MainHome'
 import Suggest from '../components/suggest/Suggest'
 import axios from 'axios'
+import { useDispatch } from 'react-redux'
+import { getMeUser } from '../features/authSlice'
 
 const Home = () => {
 
    const [category, setCategory] = useState([]);
    const [products, setProducts] = useState([]);
+
+   const dispatch = useDispatch();
+
+   const checkUserLoggedIn = useCallback (() => (dispatch) => {
+      dispatch(getMeUser());
+   }, [])
+
+   useEffect(() => {
+      dispatch(checkUserLoggedIn());
+   }, [checkUserLoggedIn, dispatch]);
 
    const getCategory = async () => {
       const response = await axios.get(`http://localhost:5000/category`);

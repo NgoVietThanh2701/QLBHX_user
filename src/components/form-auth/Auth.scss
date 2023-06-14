@@ -112,6 +112,17 @@ $text_color : $background-2;
                margin-top: $dimension_10*2;
             }
 
+            input[type=password] {
+               width: 100%;
+               padding: $dimension_13*0.9 $dimension_20;
+               display: inline-block;
+               border: 1px solid #ccc;
+               border-radius: 2px;
+               box-sizing: border-box;
+               font-size: $dimension_15*0.9;
+               margin-top: $dimension_10*2;
+            }
+
             input[type=submit] {
                width: 100%;
                background-color: #ed4e2bba;
