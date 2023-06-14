@@ -1,23 +1,10 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
-import { useDispatch, useSelector } from 'react-redux';
-import { useEffect } from 'react';
-import { getCart } from '../../features/cartSlice';
-import { useCallback } from 'react';
+import { useSelector } from 'react-redux';
 
-const Search = () => {
+const Search = ({carts}) => {
 
    const { user } = useSelector((state) => state.auth);
-   const { carts } = useSelector((state) => state.cart);
-   const dispatch = useDispatch();
-   
-   const checkCarts = useCallback (() => (dispatch) => {
-      dispatch(getCart());
-   }, [])
-
-   useEffect(() => {
-      dispatch(checkCarts());
-   }, [checkCarts, dispatch]);
 
    return (
       <>

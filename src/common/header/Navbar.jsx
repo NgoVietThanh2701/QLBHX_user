@@ -2,13 +2,14 @@ import React from 'react'
 import { useEffect } from 'react';
 import { useState } from 'react';
 import { Link } from "react-router-dom";
-const Navbar = ({getProducts}) => {
+const Navbar = ({getProducts, getCarts}) => {
 
    const [branch, setBranch] = useState(3434)
 
    useEffect(() => {
       getProducts(branch);
-   }, [getProducts, branch]);
+      getCarts(branch);
+   }, [getProducts, getCarts, branch]);
 
    return (
       <>

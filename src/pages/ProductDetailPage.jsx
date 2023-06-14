@@ -3,8 +3,9 @@ import React, { useCallback, useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import Header from '../common/header/Header'
 import ProductDetail from '../components/product-detail/ProductDetail'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { getMeUser } from '../features/authSlice'
+import { getCart } from '../features/cartSlice'
 
 const ProductDetailPage = () => {
 
@@ -27,21 +28,23 @@ const ProductDetailPage = () => {
    }, [id_product]);
 
    const getProductByCate = useCallback(async (branch) => {
-      // if(!branch) {
-      //    branch = 3434;
-      // }
       const response = await axios.get(`http://localhost:5000/category/${id}/${branch}`);
       setProducts(response.data)
    }, [id])
 
    useEffect(() => {
       getProduct();
-      // getProductByCate();
    },[getProduct])
+
+   // cart
+   const { carts } = useSelector((state) => state.cart);
+   const getCarts = useCallback(async (branch) => {
+      dispatch(getCart(branch));
+   }, [dispatch]);
 
    return (
       <>
-         <Header header={false} getProducts = {getProductByCate}/>
+         <Header header={false} getProducts = {getProductByCate} carts={carts} getCarts={getCarts}/>
          <ProductDetail product={product} products={products} />
       </>
    )

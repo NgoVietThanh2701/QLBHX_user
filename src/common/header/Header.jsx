@@ -4,7 +4,7 @@ import './Header.scss';
 import Navbar from './Navbar';
 import Search from './Search';
 
-const Header = ({ header, getProducts }) => {
+const Header = ({ header, getProducts, carts, getCarts }) => {
    // fixed Header
    window.addEventListener("scroll", function () {
       const topBar = document.querySelector(".topBar")
@@ -16,8 +16,8 @@ const Header = ({ header, getProducts }) => {
    return (
       <div className={header ? 'topBar' : ''}>
          <Head/>
-         <Search />
-         <Navbar getProducts={getProducts}/>
+         <Search carts={carts}/>
+         <Navbar getProducts={getProducts} getCarts={getCarts}/>
       </div>
    )
 }

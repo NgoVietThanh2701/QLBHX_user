@@ -37,9 +37,9 @@ const Head = () => {
                   <Link>
                      <label>Hổ trợ</label>
                   </Link>
-                  <Link to='/sign-up' >
-                     <label>{user ? <ion-icon name="person-outline"></ion-icon> : "Đăng ký"}</label>
-                  </Link>
+                  {user ? <ion-icon name="person-circle-outline"></ion-icon> :
+                     <Link to='/sign-up' > <label>Đăng ký"</label> </Link>
+                  }
                   {!user && <hr width="1" size="15" />}
                   <div className="profile">
                      <Link to='/login'>

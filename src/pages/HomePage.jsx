@@ -5,8 +5,9 @@ import FlashSale from '../components/flashSale/FlashSale'
 import MainHome from '../components/mainHome/MainHome'
 import Suggest from '../components/suggest/Suggest'
 import axios from 'axios'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { getMeUser } from '../features/authSlice'
+import { getCart } from '../features/cartSlice'
 
 const Home = () => {
 
@@ -29,9 +30,6 @@ const Home = () => {
    }
 
    const getProducts = useCallback(async (branch) => {
-      // if(!branch) {
-      //    branch = 3434;
-      // }
       const response = await axios.get(`http://localhost:5000/product/${branch}`);
       setProducts(response.data);
    }, []);
@@ -40,10 +38,16 @@ const Home = () => {
       getCategory();
    }, []);
 
+   // cart
+   const { carts } = useSelector((state) => state.cart);
+   const getCarts = useCallback(async (branch) => {
+      dispatch(getCart(branch));
+   }, [dispatch]);
+
 
    return (
       <>
-         <Header header={true} getProducts={getProducts}/>
+         <Header header={true} getProducts={getProducts} carts={carts} getCarts={getCarts}/>
          <MainHome />
          <Category category={category} />
          <FlashSale products={products} />

@@ -25,9 +25,9 @@ export const createCart = createAsyncThunk("user/cart", async(cart, thunkAPI) =>
     }
 });
 
-export const getCart = createAsyncThunk("user/getCart", async (_, thunkAPI) => {
+export const getCart = createAsyncThunk("user/getCart", async (branch, thunkAPI) => {
     try {
-        const response = await axios.get("http://localhost:5000/cart");
+        const response = await axios.get(`http://localhost:5000/cart/${branch}`);
         return response.data;
     } catch(error) {
         if(error.response) {
